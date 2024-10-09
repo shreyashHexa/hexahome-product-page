@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import Card from "../components/FeaturesCard";
 import Workingcard from "../Components/workingCard";
-
+// creating pr
 export default function Home({ aboutData, featuresData }) {
   return (
     <div className="font-sans"> {/* Use font-sans for Inter font */}

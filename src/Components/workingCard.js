@@ -32,7 +32,7 @@ const Workingcard = () => {
       description: "Enjoy increased visibility and connect with serious buyers or renters to close deals quickly. ",
       icon: "/images/icon6.png",
     },
-  ];
+  ];        
 
   return (
     <section className="px-10 bg-white -py-10 ">
