@@ -35,7 +35,7 @@ const Workingcard = () => {
   ];
 
   return (
-    <section className="px-8 bg-white -py-10 ">
+    <section className="px-10 bg-white -py-10 ">
       <div className="container mx-auto">
         
         <h2 className="mb-3 text-3xl font-bold text-center text-gray-800">How to List Property in HexaHome</h2>
