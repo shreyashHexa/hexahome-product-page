@@ -7,10 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'], // Set Inter as the default sans-serif font
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        Sorange: "#FFC107",
+        torange: "#FFC107",
+        hblue:"#000B20",
+        lgray:"#E5EAF3",
       },
     },
   },

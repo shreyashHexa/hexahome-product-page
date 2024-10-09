@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header className="fixed top-0 z-50 w-full h-20 bg-transparent shadow-md">
+    <header className="fixed top-0 z-50 w-full h-20 bg-hblue ">
       <div className="flex items-center justify-between h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Logo Section */}
         <div className="flex-shrink-0">
@@ -16,31 +16,31 @@ const Header = () => {
         {/* Navigation Links */}
         <nav className="hidden space-x-8 md:flex">
           <Link href="/about" legacyBehavior>
-            <a className="text-white hover:text-blue-600">About Us</a>
+            <a className="text-white ">About Us</a>
           </Link>
           <Link href="/services" legacyBehavior>
-            <a className="text-white hover:text-blue-600">Services</a>
+            <a className="text-white ">Services</a>
           </Link>
           <Link href="/hire-developers" legacyBehavior>
-            <a className="text-white hover:text-blue-600">Hire Developers</a>
+            <a className="text-white ">Hire Developers</a>
           </Link>
           <Link href="/portfolio" legacyBehavior>
-            <a className="text-white hover:text-blue-600">Portfolio</a>
+            <a className="text-white ">Portfolio</a>
           </Link>
           <Link href="/blog" legacyBehavior>
-            <a className="text-white hover:text-blue-600">Blog</a>
+            <a className="text-white ">Blog</a>
           </Link>
           <Link href="/careers" legacyBehavior>
-            <a className="text-white hover:text-blue-600">Careers</a>
+            <a className="text-white ">Careers</a>
           </Link>
           <Link href="/products" legacyBehavior>
-            <a className="text-white hover:text-blue-600">Products</a>
+            <a className="text-white ">Products</a>
           </Link>
         </nav>
 
         {/* Connect Button */}
         <div className="hidden md:flex">
-          <button className="px-4 py-2 text-blue-600 transition duration-300 bg-white rounded hover:bg-blue-700">
+          <button className="px-4 py-2 text-blue-600 transition duration-300 bg-white rounded ">
             Connect With Us
           </button>
         </div>
