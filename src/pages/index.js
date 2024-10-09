@@ -2,14 +2,13 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Card from "../components/FeaturesCard";
-import Workingcard from "../components/Workingcard"; // Ensure the path and casing are correct
+import Workingcard from "../Components/workingCard";
 
-export default function Home({ aboutData, featuresData, workingCardData }) {
+export default function Home({ aboutData, featuresData }) {
   return (
     <div className="font-sans"> {/* Use font-sans for Inter font */}
       <Header />
-      <Hero />
-      <About data={aboutData} />
+        <About data={aboutData} />
       <Card data={featuresData} /> {/* Pass the features data to the Card component */}
       <Workingcard cards={workingCardData} /> {/* Pass the working card data as props */}
     </div>
