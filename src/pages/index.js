@@ -8,7 +8,7 @@ export default function Home({ aboutData, featuresData }) {
   return (
     <div className="font-sans"> {/* Use font-sans for Inter font */}
       <Header />
-      <Hero />
+      {/* <Hero /> */}
       <About data={aboutData} />
       <Card data={featuresData} /> {/* Pass the features data to the Card component */}
       <Workingcard/>
