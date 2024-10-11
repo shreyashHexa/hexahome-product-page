@@ -1,53 +1,38 @@
 import Link from 'next/link';
+import React from 'react';
 
 const Header = () => {
   return (
-    <header className="fixed top-0 z-50 w-full h-20 bg-hblue ">
-      <div className="flex items-center justify-between h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <header className="fixed top-0 z-50 w-full h-20 bg-hblue">
+      <div className="flex items-center justify-between h-full px-4 mx-auto text-white max-w-7xl sm:px-6 lg:px-8">
         {/* Logo Section */}
         <div className="flex-shrink-0">
-          <Link href="/" legacyBehavior>
-            <a>
-              <img src="/images/logo.png" alt="Logo" className="h-12" />
-            </a>
+          <Link href="/">
+            <img src="/images/logo.svg" alt="HexaHome Logo" className="h-12" />
           </Link>
         </div>
 
         {/* Navigation Links */}
         <nav className="hidden space-x-8 md:flex">
-          <Link href="/about" legacyBehavior>
-            <a className="text-white ">About Us</a>
-          </Link>
-          <Link href="/services" legacyBehavior>
-            <a className="text-white ">Services</a>
-          </Link>
-          <Link href="/hire-developers" legacyBehavior>
-            <a className="text-white ">Hire Developers</a>
-          </Link>
-          <Link href="/portfolio" legacyBehavior>
-            <a className="text-white ">Portfolio</a>
-          </Link>
-          <Link href="/blog" legacyBehavior>
-            <a className="text-white ">Blog</a>
-          </Link>
-          <Link href="/careers" legacyBehavior>
-            <a className="text-white ">Careers</a>
-          </Link>
-          <Link href="/products" legacyBehavior>
-            <a className="text-white ">Products</a>
-          </Link>
+          <Link href="/about.js">About Us</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/hire-developers">Hire Developers</Link>
+          <Link href="/portfolio">Portfolio</Link>
+          <Link href="/blog">Blog</Link>
+          <Link href="/careers">Careers</Link>
+          <Link href="/products">Products</Link>
         </nav>
 
         {/* Connect Button */}
         <div className="hidden md:flex">
-          <button className="px-4 py-2 text-blue-600 transition duration-300 bg-white rounded ">
+          <button className="px-4 py-2 text-blue-600 transition duration-300 bg-white rounded hover:bg-gray-100 focus:outline-none">
             Connect With Us
           </button>
         </div>
 
         {/* Mobile Menu (Optional) */}
         <div className="md:hidden">
-          <button className="text-white focus:outline-none">
+          <button className="focus:outline-none">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -69,5 +54,4 @@ const Header = () => {
   );
 };
 
-export default Header;
- 
+export default React.memo(Header);

@@ -1,4 +1,5 @@
 import Image from "next/image"; // Ensure this import is present
+import react from "react";
 
 const Hero = () => {
   return (
@@ -13,9 +14,9 @@ const Hero = () => {
       <div className="relative z-10 grid w-full h-full gap-6 px-4 py-10 sm:px-8 sm:grid-cols-12">
         {/* Left Side - Text Content */}
         <div className="flex flex-col justify-center sm:col-span-7">
-          <h1 className="px-4 py-8 text-lg font-extrabold text-torange md:text-xl lg:text-2xl md:px-8">
+          <h2 className="px-4 py-8 text-lg font-extrabold text-torange md:text-xl lg:text-2xl md:px-8">
             GHAR AAPKA...KHOZ HAMARI
-          </h1>
+          </h2>
           <h1 className="px-4 text-2xl font-extrabold text-white md:px-8 md:text-6xl lg:text-4xl">
             Endless Real Estate Solution in Your Pocket - HexaHome
           </h1>
@@ -41,7 +42,7 @@ const Hero = () => {
         </div>
 
         {/* Right Side - Image */}
-        <div className="flex items-center justify-center hidden sm:col-span-5 sm:block">
+        <div className="items-center justify-center hidden sm:col-span-5 sm:block">
           <Image
             src="/images/heroimg.png" // Ensure this path is correct
             alt="herobg"
@@ -56,4 +57,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default react.memo(Hero);
