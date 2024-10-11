@@ -1,10 +1,11 @@
 import Image from "next/image";
+import React from "react";
 
 const Workingcard = ({ cards }) => {
   return (
-    <section className="px-10 py-10 bg-white">
+    <section className="px-4 py-10 bg-white sm:px-10">
       <div className="container mx-auto">
-        <h2 className="px-2 py-4 mb-3 text-3xl font-bold text-center text-gray-800">
+        <h2 className="px-2 py-4 mb-3 text-2xl font-bold text-center text-gray-800 sm:text-3xl md:text-4xl lg:text-5xl">
           How to List Property in HexaHome
         </h2>
 
@@ -41,4 +42,5 @@ const Workingcard = ({ cards }) => {
   );
 };
 
-export default Workingcard;
+export default React.memo(Workingcard);
+       
