@@ -1,9 +1,28 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) { // Adjust this value to change when the header becomes opaque
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="fixed top-0 z-50 w-full h-20 bg-hblue">
+    <header className={`fixed top-0 z-50 w-full h-20 transition duration-300 ${isScrolled ? 'bg-hblue' : 'bg-transparent'}`}>
       <div className="flex items-center justify-between h-full px-4 mx-auto text-white max-w-7xl sm:px-6 lg:px-8">
         {/* Logo Section */}
         <div className="flex-shrink-0">
