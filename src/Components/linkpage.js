@@ -49,32 +49,32 @@ const LinkPage = () => {
 
       <div id="subheading" className="flex flex-col items-start">
         <div className="flex gap-6 mb-4">
-          <a href="#rent" className="text-[16px] font-medium hover:text-sky-600 hover:underline">
+          <a href="#rent" className="text-[16px] font-medium hover:text-sky-400 hover:underline">
             Rent
           </a>
-          <a href="#buy" className="text-[16px] font-medium hover:text-sky-600 hover:underline">
+          <a href="#buy" className="text-[16px] font-medium hover:text-sky-400 hover:underline">
             Buy
           </a>
-          <a href="#projects" className="text-[16px] font-medium hover:text-sky-600 hover:underline">
+          <a href="#projects" className="text-[16px] font-medium hover:text-sky-400 hover:underline">
             Projects
           </a>
-          <a href="#plots" className="text-[16px] font-medium hover:text-sky-600 hover:underline">
+          <a href="#plots" className="text-[16px] font-medium hover:text-sky-400 hover:underline">
             Plots/Land
           </a>
-          <a href="#pg" className="text-[16px] font-medium hover:text-sky-600 hover:underline">
+          <a href="#pg" className="text-[16px] font-medium hover:text-sky-400 hover:underline">
             PG/Hostel
           </a>
-          <a href="#co-living" className="text-[16px] font-medium hover:text-sky-600 hover:underline">
+          <a href="#co-living" className="text-[16px] font-medium hover:text-sky-400 hover:underline">
             Co-Living
           </a>
         </div>
 
         {/* Arrows for moving tags */}
         <div className="flex justify-end px-16 mb-4">
-          <button onClick={() => scroll("left")} className="text-gray-500 hover:text-sky-600">⬅</button>
+          <button onClick={() => scroll("left")} className="text-gray-500 hover:text-sky-400">⬅</button>
           <button
             onClick={() => scroll("right")}
-            className={`text-gray-500 hover:text-sky-600 ${isAtEnd ? "opacity-50 cursor-not-allowed" : ""}`}
+            className={`text-gray-500 hover:text-sky-400 ${isAtEnd ? "opacity-50 cursor-not-allowed" : ""}`}
             disabled={isAtEnd} // Disable if at the end
           >
             ➡
@@ -88,49 +88,49 @@ const LinkPage = () => {
         <div className="overflow-hidden" ref={scrollRef} style={{ overflowX: 'auto' }}>
           <div className="flex gap-4">
             <div id="rent" className="flex flex-col justify-between flex-shrink-0 w-1/4 p-2">
-              <a className="text-[16px] hover:text-sky-600">Apartment in HSR Layout Noida</a>
-              <a className="text-[16px] hover:text-sky-600">Apartment in HSR Layout Noida</a>
-              <a className="text-[16px] hover:text-sky-600">Apartment in HSR Layout Noida</a>
-              <a className="text-[16px] hover:text-sky-600">Apartment in HSR Layout Noida</a>
-              <a className="text-[16px] hover:text-sky-600">Apartment in HSR Layout Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Apartment in HSR Layout Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Apartment in HSR Layout Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Apartment in HSR Layout Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Apartment in HSR Layout Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Apartment in HSR Layout Noida</a>
             </div>
             <div id="buy" className="flex flex-col justify-between flex-shrink-0 w-1/4 p-2">
-              <a className="text-[16px] hover:text-sky-600">Apartments in Whitfield City, Bangalore</a>
-              <a className="text-[16px] hover:text-sky-600">Apartments in Whitfield City, Bangalore</a>
-              <a className="text-[16px] hover:text-sky-600">Apartments in Whitfield City, Bangalore</a>
-              <a className="text-[16px] hover:text-sky-600">Apartments in Whitfield City, Bangalore</a>
+              <a className="text-[16px] hover:text-sky-400">Apartments in Whitfield City, Bangalore</a>
+              <a className="text-[16px] hover:text-sky-400">Apartments in Whitfield City, Bangalore</a>
+              <a className="text-[16px] hover:text-sky-400">Apartments in Whitfield City, Bangalore</a>
+              <a className="text-[16px] hover:text-sky-400">Apartments in Whitfield City, Bangalore</a>
             </div>
             <div id="projects" className="flex flex-col justify-between flex-shrink-0 w-1/4 p-2">
-              <a className="text-[16px] hover:text-sky-600">New Projects in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">New Projects in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">New Projects in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">New Projects in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">New Projects in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">New Projects in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">New Projects in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">New Projects in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">New Projects in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">New Projects in Noida</a>
             </div>
             <div id="plots" className="flex flex-col justify-between flex-shrink-0 w-1/4 p-2">
-              <a className="text-[16px] hover:text-sky-600">Plots available in Sector 150</a>
-              <a className="text-[16px] hover:text-sky-600">Plots available in Sector 150</a>
-              <a className="text-[16px] hover:text-sky-600">Plots available in Sector 150</a>
-              <a className="text-[16px] hover:text-sky-600">Plots available in Sector 150</a>
-              <a className="text-[16px] hover:text-sky-600">Plots available in Sector 150</a>
-              <a className="text-[16px] hover:text-sky-600">Plots available in Sector 150</a>
+              <a className="text-[16px] hover:text-sky-400">Plots available in Sector 150</a>
+              <a className="text-[16px] hover:text-sky-400">Plots available in Sector 150</a>
+              <a className="text-[16px] hover:text-sky-400">Plots available in Sector 150</a>
+              <a className="text-[16px] hover:text-sky-400">Plots available in Sector 150</a>
+              <a className="text-[16px] hover:text-sky-400">Plots available in Sector 150</a>
+              <a className="text-[16px] hover:text-sky-400">Plots available in Sector 150</a>
             </div>
             <div id="pg" className="flex flex-col justify-between flex-shrink-0 w-1/4 p-2">
-              <a className="text-[16px] hover:text-sky-600">PG Options in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">PG Options in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">PG Options in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">PG Options in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">PG Options in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">PG Options in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">PG Options in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">PG Options in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">PG Options in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">PG Options in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">PG Options in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">PG Options in Noida</a>
             </div>
             <div id="co-living" className="flex flex-col justify-between flex-shrink-0 w-1/4 p-2">
-              <a className="text-[16px] hover:text-sky-600">Co-Living Spaces in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">Co-Living Spaces in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">Co-Living Spaces in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">Co-Living Spaces in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">Co-Living Spaces in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">Co-Living Spaces in Noida</a>
-              <a className="text-[16px] hover:text-sky-600">Co-Living Spaces in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Co-Living Spaces in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Co-Living Spaces in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Co-Living Spaces in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Co-Living Spaces in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Co-Living Spaces in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Co-Living Spaces in Noida</a>
+              <a className="text-[16px] hover:text-sky-400">Co-Living Spaces in Noida</a>
             </div>
           </div>
         </div>
