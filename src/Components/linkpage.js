@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 
-const LinkPage = () => {
+const LinkPage = ({ propertyOptions }) => {  // Accept propertyOptions as props
   const scrollRef = useRef(null);
   const [isAtEnd, setIsAtEnd] = useState(false);
 
@@ -90,49 +90,15 @@ const LinkPage = () => {
         {/* Subheading Sections in a Horizontal Scrollable Container */}
         <div className="overflow-x-auto" ref={scrollRef}>
           <div className="flex gap-4 min-w-[600px] md:min-w-[800px]">
-            {/* Rent Section */}
-            <div id="rent" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-            {["Apartment in HSR Layout Noidae","Apartment in HSR Layout Noida","Apartment in HSR Layout Noida","Apartment in HSR Layout Noida","Apartment in HSR Layout Noida"].
-map((index,item)=>( <a key={index} className="text-sm md:text-base hover:text-sky-400">{item}</a>))}
-             
-            </div>
-
-            {/* Buy Section */}
-            <div id="buy" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-            {["Apartments in Whitfield City, Bangalore","Apartments in Whitfield City, Bangalore","Apartments in Whitfield City, Bangalore","Apartments in Whitfield City, Bangalore","Apartments in Whitfield City, Bangalore"].
-              map((index,item)=>( <a key={index} className="text-sm md:text-base hover:text-sky-400">{item}</a>))}
-             
-            </div>
-
-            {/* Projects Section */}
-            <div id="projects" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-             {["New Projects in Noida","New Projects in Noida","New Projects in Noida","New Projects in Noida","New Projects in Noida","New Projects in Noida"]
-             .map((item,index)=>(<a key={index} className="text-sm md:text-base hover:text-sky-400">{item}</a>))}
-            </div> 
-
-            {/* Plots Section */}
-            <div id="plots" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-            {["Plots available in Sector 150","Plots available in Sector 150","Plots available in Sector 150","Plots available in Sector 150","Plots available in Sector 150"]
-            .map((item,index)=>(<a key={index} className="text-sm md:text-base hover:text-sky-400">{item}</a>))
-            }
-            </div>
-
-            {/* PG Section */}
-            <div id="pg" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-              {["PG Options in Noida","PG Options in Noida","PG Options in Noida","PG Options in Noida","PG Options in Noida","PG Options in Noida"].
-              map((item,index)=>(<a key={index} className="text-sm md:text-base hover:text-sky-400">{item}</a>))}
-
-              
-           
-            </div>
-
-            {/* Co-Living Section */}
-            <div id="co-living" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-      {["Co-Living Spaces in Noida", "Co-Living Spaces in Noida", "Co-Living Spaces in Noida", "Co-Living Spaces in Noida", "Co-Living Spaces in Noida", "Co-Living Spaces in Noida"].
-      map((item, index) => (<a key={index} className="text-sm md:text-base hover:text-sky-400">{item} </a>))
-      }
-</div>
-
+            {propertyOptions.map((option, index) => (
+              <div key={index} id={option.id} className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
+                {option.list.map((item, idx) => (
+                  <a key={idx} className="text-sm md:text-base hover:text-sky-400">
+                    {item}
+                  </a>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
