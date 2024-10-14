@@ -3,14 +3,16 @@ import React from "react";
 const Card = ({ data }) => {
   return (
     <section className="py-10 bg-lgray">
-      <div className="container mx-auto">
-        <h2 className="mb-3 text-3xl font-bold text-center text-gray-800">Why HexaHome?</h2>
+      <div className="container px-4 mx-auto sm:px-8">
+        <h2 className="mb-3 text-2xl font-bold text-center text-gray-800 md:text-3xl">
+          Why HexaHome?
+        </h2>
         <p className="pb-8 font-medium text-center">
           Find, Compare & Finalize the property that meets all your preferences
         </p>
 
         {/* Responsive Grid for Cards */}
-        <div className="grid grid-cols-1 gap-8 px-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {data.map((feature, index) => (
             <div
               key={index}
@@ -20,7 +22,7 @@ const Card = ({ data }) => {
               <img
                 src={feature.icon}
                 alt={`${feature.title} Icon`}
-                className="w-10 h-10 mb-4" // Use width and height classes for sizing
+                className="w-10 h-10 mb-4"
               />
               
               {/* Title and Description */}
