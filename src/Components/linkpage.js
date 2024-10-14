@@ -92,56 +92,47 @@ const LinkPage = () => {
           <div className="flex gap-4 min-w-[600px] md:min-w-[800px]">
             {/* Rent Section */}
             <div id="rent" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-              <a className="text-sm md:text-base hover:text-sky-400">Apartment in HSR Layout Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Apartment in HSR Layout Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Apartment in HSR Layout Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Apartment in HSR Layout Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Apartment in HSR Layout Noida</a>
+            {["Apartment in HSR Layout Noidae","Apartment in HSR Layout Noida","Apartment in HSR Layout Noida","Apartment in HSR Layout Noida","Apartment in HSR Layout Noida"].
+map((index,item)=>( <a key={index} className="text-sm md:text-base hover:text-sky-400">{item}</a>))}
+             
             </div>
 
             {/* Buy Section */}
             <div id="buy" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-              <a className="text-sm md:text-base hover:text-sky-400">Apartments in Whitfield City, Bangalore</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Apartments in Whitfield City, Bangalore</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Apartments in Whitfield City, Bangalore</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Apartments in Whitfield City, Bangalore</a>
+            {["Apartments in Whitfield City, Bangalore","Apartments in Whitfield City, Bangalore","Apartments in Whitfield City, Bangalore","Apartments in Whitfield City, Bangalore","Apartments in Whitfield City, Bangalore"].
+              map((index,item)=>( <a key={index} className="text-sm md:text-base hover:text-sky-400">{item}</a>))}
+             
             </div>
 
             {/* Projects Section */}
             <div id="projects" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-              <a className="text-sm md:text-base hover:text-sky-400">New Projects in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">New Projects in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">New Projects in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">New Projects in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">New Projects in Noida</a>
-            </div>
+             {["New Projects in Noida","New Projects in Noida","New Projects in Noida","New Projects in Noida","New Projects in Noida","New Projects in Noida"]
+             .map((item,index)=>(<a key={index} className="text-sm md:text-base hover:text-sky-400">{item}</a>))}
+            </div> 
 
             {/* Plots Section */}
             <div id="plots" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-              <a className="text-sm md:text-base hover:text-sky-400">Plots available in Sector 150</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Plots available in Sector 150</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Plots available in Sector 150</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Plots available in Sector 150</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Plots available in Sector 150</a>
+            {["Plots available in Sector 150","Plots available in Sector 150","Plots available in Sector 150","Plots available in Sector 150","Plots available in Sector 150"]
+            .map((item,index)=>(<a key={index} className="text-sm md:text-base hover:text-sky-400">{item}</a>))
+            }
             </div>
 
             {/* PG Section */}
             <div id="pg" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-              <a className="text-sm md:text-base hover:text-sky-400">PG Options in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">PG Options in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">PG Options in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">PG Options in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">PG Options in Noida</a>
+              {["PG Options in Noida","PG Options in Noida","PG Options in Noida","PG Options in Noida","PG Options in Noida","PG Options in Noida"].
+              map((item,index)=>(<a key={index} className="text-sm md:text-base hover:text-sky-400">{item}</a>))}
+
+              
+           
             </div>
 
             {/* Co-Living Section */}
             <div id="co-living" className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
-              <a className="text-sm md:text-base hover:text-sky-400">Co-Living Spaces in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Co-Living Spaces in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Co-Living Spaces in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Co-Living Spaces in Noida</a>
-              <a className="text-sm md:text-base hover:text-sky-400">Co-Living Spaces in Noida</a>
-            </div>
+      {["Co-Living Spaces in Noida", "Co-Living Spaces in Noida", "Co-Living Spaces in Noida", "Co-Living Spaces in Noida", "Co-Living Spaces in Noida", "Co-Living Spaces in Noida"].
+      map((item, index) => (<a key={index} className="text-sm md:text-base hover:text-sky-400">{item} </a>))
+      }
+</div>
+
           </div>
         </div>
       </div>
