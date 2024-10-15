@@ -8,11 +8,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -32,7 +28,7 @@ const Header = () => {
         {/* Logo Section */}
         <div className="flex-shrink-0">
           <Link href="/">
-            <Image src="/images/logo.svg" alt="HexaHome Logo" width={48} height={48} className="h-12" />
+            <Image src="/images/logo.svg" alt="HexaHome Logo" width={167} height={44} className="h-12" />
           </Link>
         </div>
 
@@ -57,20 +53,12 @@ const Header = () => {
         {/* Hamburger Menu Button - Visible on Mobile */}
         <div className="md:hidden">
           <button className="focus:outline-none" onClick={toggleMenu}>
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+            <Image
+              src="/images/burger-menu-svgrepo-com.svg" // Update the path to your SVG image
+              alt="Menu"
+              width={24} // Adjust the width and height as needed
+              height={24}
+            />
           </button>
         </div>
       </div>

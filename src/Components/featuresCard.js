@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image"; // Make sure you're using Next.js Image
+import Image from "next/image"; // Ensure you're using Next.js Image
 
 const Card = ({ data }) => {
   return (
@@ -27,7 +27,7 @@ const Card = ({ data }) => {
                 width={40}
                 height={40} // Correct width and height
               />
-              
+
               {/* Title and Description */}
               <div className="text-left text-black">
                 <h3 className="mb-2 text-lg font-semibold">{feature.title}</h3>
