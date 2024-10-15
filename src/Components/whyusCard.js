@@ -8,7 +8,7 @@ const WhyUsCard = ({ data }) => {
       <div className="mb-8 text-center">
         <h2 className="text-2xl font-bold mb-4 md:text-[36px]">Why Property Hunters Love Us</h2>
         <p className="text-base md:text-[20px]">
-          Changing the way people's, Property hunting made simple. Find, compare, and move into your dream home with ease.
+          Changing the way people&apos;s, Property hunting made simple. Find, compare, and move into your dream home with ease.
         </p>
       </div>
 

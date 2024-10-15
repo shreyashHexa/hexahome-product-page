@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 const Header = () => {
@@ -31,13 +32,13 @@ const Header = () => {
         {/* Logo Section */}
         <div className="flex-shrink-0">
           <Link href="/">
-            <img src="/images/logo.svg" alt="HexaHome Logo" className="h-12" />
+            <Image src="/images/logo.svg" alt="HexaHome Logo" width={48} height={48} className="h-12" />
           </Link>
         </div>
 
         {/* Navigation Links - Hidden on Mobile */}
         <nav className="hidden space-x-8 md:flex">
-          <Link href="/about.js">About Us</Link>
+          <Link href="/about">About Us</Link>
           <Link href="/services">Services</Link>
           <Link href="/hire-developers">Hire Developers</Link>
           <Link href="/portfolio">Portfolio</Link>
@@ -78,7 +79,7 @@ const Header = () => {
       {menuOpen && (
         <div className="absolute left-0 w-full text-white md:hidden bg-hblue top-20">
           <nav className="flex flex-col items-center py-4 space-y-4">
-            <Link href="/about.js" onClick={toggleMenu}>About Us</Link>
+            <Link href="/about" onClick={toggleMenu}>About Us</Link>
             <Link href="/services" onClick={toggleMenu}>Services</Link>
             <Link href="/hire-developers" onClick={toggleMenu}>Hire Developers</Link>
             <Link href="/portfolio" onClick={toggleMenu}>Portfolio</Link>
