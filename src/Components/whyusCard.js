@@ -6,17 +6,20 @@ const WhyUsCard = ({ data }) => {
     <section className="flex flex-col items-center justify-center gap-6 px-5 py-6 bg-lgray">
       {/* Title and Description */}
       <div className="mb-8 text-center">
-        <h2 className="text-[36px] font-bold mb-4">Why Property hunters Love Us</h2>
-        <p className="text-[20px]">Changing the way people's, Property hunting made simple. Find, compare, and move into your dream home with ease.</p>
+        <h2 className="text-2xl font-bold mb-4 md:text-[36px]">Why Property Hunters Love Us</h2>
+        <p className="text-base md:text-[20px]">
+          Changing the way people's, Property hunting made simple. Find, compare, and move into your dream home with ease.
+        </p>
       </div>
 
-      <div className="flex flex-col items-center justify-between w-full px-16 py-2 md:flex-row">
+      {/* Cards and Center Image */}
+      <div className="flex flex-col items-center justify-between w-full gap-8 md:flex-row">
         {/* Left Column */}
-        <div className="flex flex-col items-center gap-4 md:w-1/4">
+        <div className="flex flex-col items-center w-full gap-4 md:w-1/4">
           {data.slice(0, 2).map((card) => (
             <div
               key={card.id}
-              className="w-[406px] h-[228px] bg-white rounded-lg flex flex-col items-start p-3" 
+              className="w-full max-w-[320px] h-auto bg-white rounded-lg flex flex-col items-start p-4 md:w-[406px] md:h-[228px]"
             >
               <div className="flex flex-col items-start">
                 <Image
@@ -26,18 +29,18 @@ const WhyUsCard = ({ data }) => {
                   height={52}
                   className="mb-2"
                 />
-                <h3 className="text-[20px] font-bold mb-1">{card.title}</h3> 
-                <p className="text-[16px] mb-1">{card.description}</p> 
+                <h3 className="text-lg font-bold mb-1 md:text-[20px]">{card.title}</h3>
+                <p className="text-sm md:text-[16px]">{card.description}</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Center Image */}
-        <div className="flex items-center justify-center w-full mb-2 md:w-1/4 md:mb-0">
+        <div className="flex items-center justify-center w-full max-w-[320px] md:w-1/4">
           <Image
             src="/images/whycardimg.png"
-            alt="Description of the image"
+            alt="Center Image"
             width={600}
             height={792}
             className="rounded-lg"
@@ -45,11 +48,11 @@ const WhyUsCard = ({ data }) => {
         </div>
 
         {/* Right Column */}
-        <div className="flex flex-col items-center gap-4 md:w-1/4">
+        <div className="flex flex-col items-center w-full gap-4 md:w-1/4">
           {data.slice(2, 4).map((card) => (
             <div
               key={card.id}
-              className="w-[406px] h-[228px] bg-white rounded-lg flex flex-col items-start p-3" 
+              className="w-full max-w-[320px] h-auto bg-white rounded-lg flex flex-col items-start p-4 md:w-[406px] md:h-[228px]"
             >
               <div className="flex flex-col items-start">
                 <Image
@@ -59,8 +62,8 @@ const WhyUsCard = ({ data }) => {
                   height={52}
                   className="mb-2"
                 />
-                <h3 className="text-[20px] font-bold mb-1">{card.title}</h3> 
-                <p className="text-[16px] mb-1">{card.description}</p> 
+                <h3 className="text-lg font-bold mb-1 md:text-[20px]">{card.title}</h3>
+                <p className="text-sm md:text-[16px]">{card.description}</p>
               </div>
             </div>
           ))}

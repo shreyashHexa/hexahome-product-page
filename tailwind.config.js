@@ -16,6 +16,8 @@ module.exports = {
         torange: "#FFC107",
         hblue:"#000B20",
         lgray:"#E5EAF3",
+        tblue:"#002E83",
+
       },
     },
   },

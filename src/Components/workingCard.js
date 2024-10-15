@@ -10,7 +10,7 @@ const Workingcard = ({ cards }) => {
         </h2>
 
         {/* Responsive Grid for Cards */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card, index) => (
             <div
               key={index}
@@ -29,7 +29,7 @@ const Workingcard = ({ cards }) => {
               {/* Title and Description Section */}
               <div>
                 {/* Card Title */}
-                <h3 className="text-lg font-medium">{card.title}</h3>
+                <h3 className="mb-2 text-lg font-medium">{card.title}</h3>
 
                 {/* Card Description */}
                 <p className="text-gray-600">{card.description}</p>
@@ -43,4 +43,3 @@ const Workingcard = ({ cards }) => {
 };
 
 export default React.memo(Workingcard);
-       
