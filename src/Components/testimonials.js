@@ -63,7 +63,7 @@ const Testimonials = ({ reviews = [] }) => { // Default to empty array
                 <div className="p-4 bg-white rounded-lg shadow-lg w-full sm:w-[48%] lg:w-[30%] mb-4 mx-auto">
                     <p className="mb-4 text-base md:text-lg">{reviewToDisplay.description}</p>
                     <div className="flex items-center mt-4">
-                        <img src={reviewToDisplay.image} alt={reviewToDisplay.name} className="w-10 h-10 mr-4 rounded-full md:w-12 md:h-12" />
+                        <Image src={reviewToDisplay.image} alt={reviewToDisplay.name} className="w-10 h-10 mr-4 rounded-full md:w-12 md:h-12" />
                         <div>
                             <h4 className="text-sm font-bold md:text-base">{reviewToDisplay.name}</h4>
                             <div className="flex">
