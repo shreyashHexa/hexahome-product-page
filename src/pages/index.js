@@ -1,13 +1,16 @@
+
+import dynamic from 'next/dynamic'; 
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import About from "../components/About";
-import FeaturesCard from "../components/FeaturesCard";
-import WorkingCard from "../components/WorkingCard";
-import WhyUsCard from "../components/WhyUsCard";
-import LinkPage from "../components/LinkPage";
-import Tipspage from "../components/tipspage";
-import Faq from "../components/FaqPage"; // Ensure correct import
-
+const About = dynamic(() => import("../components/About"));
+const FeaturesCard = dynamic(() => import("../components/FeaturesCard"));
+const WorkingCard = dynamic(() => import("../components/WorkingCard"));
+const WhyUsCard = dynamic(() => import("../components/WhyUsCard"));
+const LinkPage = dynamic(() => import("../components/LinkPage"));
+const Tipspage = dynamic(() => import("../components/tipspage"));
+const Faq = dynamic(() => import("../components/FaqPage")); // Ensure correct import
+const Testimonials = dynamic(() => import("../components/Testimonials"));
+  
 export default function Home({ aboutData, featuresData, workingCardData, whyUsCardData, propertyOptions, faqs }) {
   return (
     <div className="font-sans"> {/* Ensure Inter font is applied */}
@@ -20,6 +23,7 @@ export default function Home({ aboutData, featuresData, workingCardData, whyUsCa
       <LinkPage propertyOptions={propertyOptions} /> {/* Passing property options */}
       <Tipspage />
       <Faq faqs={faqs} /> {/* Pass the FAQ data as props */}
+    <Testimonials/>
     </div>
   );
 }

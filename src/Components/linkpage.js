@@ -1,8 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 
-const LinkPage = ({ propertyOptions }) => {  // Accept propertyOptions as props
+const LinkPage = ({ propertyOptions }) => {
   const scrollRef = useRef(null);
   const [isAtEnd, setIsAtEnd] = useState(false);
+  const [isAtStart, setIsAtStart] = useState(true);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -19,6 +20,7 @@ const LinkPage = ({ propertyOptions }) => {  // Accept propertyOptions as props
   const checkScrollPosition = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setIsAtStart(scrollLeft === 0);
       setIsAtEnd(scrollLeft + clientWidth >= scrollWidth);
     }
   };
@@ -72,13 +74,19 @@ const LinkPage = ({ propertyOptions }) => {  // Accept propertyOptions as props
 
         {/* Scroll Arrows */}
         <div className="flex items-center justify-between mb-4">
-          <button onClick={() => scroll("left")} className="text-gray-500 hover:text-sky-400">
+          <button
+            onClick={() => scroll("left")}
+            disabled={isAtStart}
+            className={`text-gray-500 hover:text-sky-400 ${isAtStart ? "opacity-50 cursor-not-allowed" : ""}`}
+            aria-label="Scroll Left"
+          >
             ⬅
           </button>
           <button
             onClick={() => scroll("right")}
-            className={`text-gray-500 hover:text-sky-400 ${isAtEnd ? "opacity-50 cursor-not-allowed" : ""}`}
             disabled={isAtEnd}
+            className={`text-gray-500 hover:text-sky-400 ${isAtEnd ? "opacity-50 cursor-not-allowed" : ""}`}
+            aria-label="Scroll Right"
           >
             ➡
           </button>
@@ -88,12 +96,20 @@ const LinkPage = ({ propertyOptions }) => {  // Accept propertyOptions as props
         <div className="w-full mb-4 border-b border-gray-300" />
 
         {/* Subheading Sections in a Horizontal Scrollable Container */}
-        <div className="overflow-x-auto" ref={scrollRef}>
-          <div className="flex gap-4 min-w-[600px] md:min-w-[800px]">
+        <div className="w-full overflow-x-scroll" ref={scrollRef}>
+          <div className="flex gap-4 w-max min-w-full md:min-w-[80%] lg:min-w-[60%]">
             {propertyOptions.map((option, index) => (
-              <div key={index} id={option.id} className="flex flex-col flex-shrink-0 w-full max-w-xs p-2">
+              <div
+                key={index}
+                id={option.id}
+                className="flex flex-col flex-shrink-0 w-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] lg:max-w-[300px] p-2"
+              >
                 {option.list.map((item, idx) => (
-                  <a key={idx} className="text-sm md:text-base hover:text-sky-400">
+                  <a
+                    key={idx}
+                    href={`#${item}`}
+                    className="text-sm sm:text-base md:text-lg hover:text-sky-400"
+                  >
                     {item}
                   </a>
                 ))}
