@@ -1,29 +1,34 @@
-
 import dynamic from 'next/dynamic'; 
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-const About = dynamic(() => import("../components/About"));
-const FeaturesCard = dynamic(() => import("../components/FeaturesCard"));
-const WorkingCard = dynamic(() => import("../components/WorkingCard"));
-const WhyUsCard = dynamic(() => import("../components/WhyUsCard"));
-const LinkPage = dynamic(() => import("../components/LinkPage"));
-const Tipspage = dynamic(() => import("../components/tipspage"));
-const Faq = dynamic(() => import("../components/FaqPage")); // Ensure correct import
-const Testimonials = dynamic(() => import("../components/Testimonials"));
-  
+import Head from 'next/head';
+
+const About = dynamic(() => import("../components/About"), { loading: () => <p>Loading About...</p> });
+const FeaturesCard = dynamic(() => import("../components/FeaturesCard"), { loading: () => <p>Loading Features...</p> });
+const WorkingCard = dynamic(() => import("../components/WorkingCard"), { loading: () => <p>Loading Working Cards...</p> });
+const WhyUsCard = dynamic(() => import("../components/WhyUsCard"), { loading: () => <p>Loading Why Us Cards...</p> });
+const LinkPage = dynamic(() => import("../components/LinkPage"), { loading: () => <p>Loading Links...</p> });
+const Tipspage = dynamic(() => import("../components/tipspage"), { loading: () => <p>Loading Tips...</p> });
+const Faq = dynamic(() => import("../components/FaqPage"), { loading: () => <p>Loading FAQs...</p> });
+const Testimonials = dynamic(() => import("../components/Testimonials"), { loading: () => <p>Loading Testimonials...</p> });
+
 export default function Home({ aboutData, featuresData, workingCardData, whyUsCardData, propertyOptions, faqs }) {
   return (
-    <div className="font-sans"> {/* Ensure Inter font is applied */}
+    <div className="font-sans">
+      <Head>
+        <title>{aboutData.title}</title>
+        <meta name="description" content={aboutData.description} />
+      </Head>
       <Header />
       <Hero />
       <About data={aboutData} />
       <FeaturesCard data={featuresData} />
       <WorkingCard cards={workingCardData} />
       <WhyUsCard data={whyUsCardData} />
-      <LinkPage propertyOptions={propertyOptions} /> {/* Passing property options */}
+      <LinkPage propertyOptions={propertyOptions} />
       <Tipspage />
-      <Faq faqs={faqs} /> {/* Pass the FAQ data as props */}
-    <Testimonials/>
+      <Faq faqs={faqs} />
+      <Testimonials />
     </div>
   );
 }
@@ -36,8 +41,8 @@ export async function getServerSideProps() {
       fetch(`http://localhost:3000/api/FeaturesCardData`),
       fetch(`http://localhost:3000/api/workingcardata`),
       fetch(`http://localhost:3000/api/whyusdata`),
-      fetch(`http://localhost:3000/api/links`), // Fetching property options
-      fetch(`http://localhost:3000/api/faq`), // Fetching FAQ data
+      fetch(`http://localhost:3000/api/links`),
+      fetch(`http://localhost:3000/api/faq`),
     ]);
 
     if (!aboutRes.ok || !featuresRes.ok || !workingCardRes.ok || !whyUsCardRes.ok || !propertyOptionsRes.ok || !faqsRes.ok) {
@@ -50,7 +55,7 @@ export async function getServerSideProps() {
       workingCardRes.json(),
       whyUsCardRes.json(),
       propertyOptionsRes.json(),
-      faqsRes.json(), // Parse FAQ data
+      faqsRes.json(),
     ]);
 
     return {
@@ -60,7 +65,7 @@ export async function getServerSideProps() {
         workingCardData,
         whyUsCardData,
         propertyOptions,
-        faqs, // Pass the FAQ data to the props
+        faqs,
       },
     };
   } catch (error) {
@@ -72,7 +77,7 @@ export async function getServerSideProps() {
         workingCardData: [],
         whyUsCardData: [],
         propertyOptions: [],
-        faqs: [], // Pass an empty array for FAQs on error
+        faqs: [],
       },
     };
   }
