@@ -21,8 +21,8 @@ const Workingcard = ({ cards }) => {
                 <Image
                   src={card.icon}
                   alt={`${card.title} Icon`}
-                  width={30}
-                  height={30}
+                  width={60}
+                  height={60}
                 />
               </div>
 

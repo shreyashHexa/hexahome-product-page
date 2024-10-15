@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; // Make sure you're using Next.js Image
 
 const Card = ({ data }) => {
   return (
@@ -19,10 +20,12 @@ const Card = ({ data }) => {
               className="flex flex-col items-start p-6 transition-shadow duration-300 bg-white rounded-lg shadow-md hover:shadow-lg"
             >
               {/* SVG Icon Above Text */}
-              <img
+              <Image
                 src={feature.icon}
                 alt={`${feature.title} Icon`}
                 className="w-10 h-10 mb-4"
+                width={40}
+                height={40} // Correct width and height
               />
               
               {/* Title and Description */}

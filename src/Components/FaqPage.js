@@ -28,7 +28,7 @@ const FaqPage = ({ faqs }) => {
     }, []);
 
     return (
-        <div className={`gap-8 px-12 py-8 ${isScrolled ? 'bg-gray-200 text-black' : 'bg-white text-black'}`}>
+        <div className={`gap-8 px-12 py-8 ${isScrolled ? 'bg-white text-black' : 'bg-white text-black'}`}>
             <div className="text-base text-center">
                 <h3 className="inline-block px-4 py-2 text-lg font-semibold bg-gray-300 rounded-full md:text-xl text-tblue">Frequently Asked Questions</h3>
                 <h2 className="py-4 text-2xl font-bold md:text-3xl">Checkout the FAQ’s On HexaHome</h2>

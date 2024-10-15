@@ -45,8 +45,8 @@ const CustomStepLabel = styled(StepLabel)(({ theme }) => ({
 }));
 
 const CircularButton = styled(Box)(({ theme }) => ({
-  width: '40px',
-  height: '40px',
+  width: '48px', // Larger for accessibility
+  height: '48px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -55,6 +55,10 @@ const CircularButton = styled(Box)(({ theme }) => ({
   cursor: 'pointer',
   '&:hover': {
     backgroundColor: 'rgba(255, 255, 255, 0.4)', // Hover effect
+  },
+  [theme.breakpoints.down('sm')]: {
+    width: '40px', // Smaller buttons on mobile
+    height: '40px',
   },
 }));
 
@@ -99,9 +103,9 @@ export default function HorizontalLinearStepper() {
   };
 
   return (
-    <Box sx={{ width: '100%', position: 'relative' }}>
-      <Box sx={{ position: 'absolute', top: '10px', right: '10px', display: 'flex', gap: 2, mb: 2, py: 8 }}>
-        <CircularButton onClick={handleBack} sx={{ color: 'white' }}>
+    <Box sx={{ width: '100%', position: 'relative', py: 10 }}>
+      <Box sx={{ position: 'absolute', top: '10px', right: '10px', display: 'flex', gap: 2 }}>
+        <CircularButton onClick={handleBack} disabled={activeStep === 0} sx={{ color: 'white' }}>
           <ArrowBackIcon fontSize="small" sx={{ color: 'white' }} />
         </CircularButton>
         {isStepOptional(activeStep) && (
@@ -114,7 +118,7 @@ export default function HorizontalLinearStepper() {
         </CircularButton>
       </Box>
 
-      <Stepper activeStep={activeStep}>
+      <Stepper activeStep={activeStep} sx={{ paddingBottom: 3 }}>
         {steps.map((step, index) => {
           const stepProps = {};
           const labelProps = {};
@@ -138,8 +142,8 @@ export default function HorizontalLinearStepper() {
 
       {activeStep === steps.length ? (
         <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1, color: 'white', fontSize: '1.5rem' }}>
-            All steps completed - you're finished
+          <Typography sx={{ mt: 2, mb: 1, color: 'white', fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
+            All steps completed you&apos;re finished
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Box sx={{ flex: '1 1 auto' }} />
@@ -150,13 +154,13 @@ export default function HorizontalLinearStepper() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1, color: 'white', fontSize: '1.5rem' }}>
+          <Typography sx={{ mt: 2, mb: 1, color: 'white', fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
             Step {activeStep + 1}
           </Typography>
-          <Typography sx={{ color: 'white', fontSize: '1.2rem', mb: 1 }}>
+          <Typography sx={{ color: 'white', fontSize: { xs: '1rem', md: '1.2rem' }, mb: 1 }}>
             {steps[activeStep].title}
           </Typography>
-          <Typography sx={{ color: 'white', fontSize: '1.1rem', lineHeight: 1.5, mb: 1 }}>
+          <Typography sx={{ color: 'white', fontSize: { xs: '0.9rem', md: '1.1rem' }, lineHeight: 1.5, mb: 1 }}>
             {steps[activeStep].description}
           </Typography>
         </React.Fragment>
