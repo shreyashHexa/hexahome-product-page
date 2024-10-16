@@ -1,5 +1,5 @@
 import React from 'react';
-import HorizontalLinearStepper from '../components/HorizontalLinearStepper'; // Ensure correct path
+import HorizontalLinearStepper from './HorizontalLinearStepper'; // Ensure correct path
 
 const Tipspage = () => {
   return (
