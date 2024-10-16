@@ -7,7 +7,7 @@ import Head from 'next/head';
 
 // Dynamic imports with proper casing
 const About = dynamic(() => import("../Components/about"), { loading: () => <p>Loading About...</p> });
-const FeaturesCard = dynamic(() => import("../Components/FeaturesCard"), { loading: () => <p>Loading Features...</p> });
+const Card = dynamic(() => import("../Components/FeaturesCard"), { loading: () => <p>Loading Features...</p> });
 const WorkingCard = dynamic(() => import("../Components/workingCard"), { loading: () => <p>Loading Working Cards...</p> });
 const WhyUsCard = dynamic(() => import("../Components/whyusCard"), { loading: () => <p>Loading Why Us Cards...</p> });
 const LinkPage = dynamic(() => import("../Components/linkpage"), { loading: () => <p>Loading Links...</p> });
@@ -36,7 +36,7 @@ export default function Home({
       <Header />
       <Hero />
       <About data={aboutData} />
-      <FeaturesCard data={featuresData} />
+      <Card data={featuresData} />
       <WorkingCard cards={workingCardData} />
       <WhyUsCard data={whyUsCardData} />
       <LinkPage propertyOptions={propertyOptions} />
