@@ -6,16 +6,15 @@ import Hero from "../Components/hero";
 import Head from 'next/head';
 
 // Dynamic imports with proper casing
-const About = dynamic(() => import("../Components/about"), { loading: () => <p>Loading About...</p> });
-const FeaturesCard = dynamic(() => import("../Components/FeaturesCard"), { loading: () => <p>Loading Features...</p> });
+const About = dynamic(() => import("../Components/about"), { loading: () => <p>Loading About...</p> }); // Correct casing and path
+const FeaturesCard = dynamic(() => import("../Components/featuresCard"), { loading: () => <p>Loading Features...</p> });
 const WorkingCard = dynamic(() => import("../Components/workingCard"), { loading: () => <p>Loading Working Cards...</p> });
 const WhyUsCard = dynamic(() => import("../Components/whyusCard"), { loading: () => <p>Loading Why Us Cards...</p> });
 const LinkPage = dynamic(() => import("../Components/linkpage"), { loading: () => <p>Loading Links...</p> });
-const Tipspage = dynamic(() => import("../Components/tipspage"), { loading: () => <p>Loading Tips...</p> });
+const Tipspage = dynamic(() => import("../Components/tipspage"), { loading: () => <p>Loading Tips...</p> }); // Correct path and capitalization if file is Tipspage.js
 const Faq = dynamic(() => import("../Components/FaqPage"), { loading: () => <p>Loading FAQs...</p> });
 const Testimonials = dynamic(() => import("../Components/testimonials"), { loading: () => <p>Loading Testimonials...</p> });
-const Blogpage = dynamic(() => import("../Components/blogpage"), { loading: () => <p>Loading blog page...</p> });
-const Connectus = dynamic(() => import("../Components/connectus"), { loading: () => <p>Loading connectus page...</p> });
+
 export default function Home({ 
   aboutData, 
   featuresData,   
@@ -24,7 +23,6 @@ export default function Home({
   propertyOptions, 
   faqs,
   testimonialsData,
-  blogs, // Add blogs to props
   error, // Add error to props
 }) {
   return (
@@ -35,16 +33,14 @@ export default function Home({
       </Head>
       <Header />
       <Hero />
-      <About data={aboutData} />
+      <About data={aboutData} /> {/* Use About with correct capitalization */}
       <FeaturesCard data={featuresData} />
       <WorkingCard cards={workingCardData} />
       <WhyUsCard data={whyUsCardData} />
       <LinkPage propertyOptions={propertyOptions} />
       <Tipspage />
       <Faq faqs={faqs} />
-      <Testimonials testimonials={testimonialsData} /> {/* Pass testimonials data */}
-      <Blogpage blogs={blogs} /> {/* Pass blogs data */}
-      <Connectus/>
+      <Testimonials data={testimonialsData} />
       {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
     </div>
   );
@@ -53,7 +49,7 @@ export default function Home({
 // Fetching data server-side
 export async function getServerSideProps() {
   try {
-    const [aboutRes, featuresRes, workingCardRes, whyUsCardRes, propertyOptionsRes, faqsRes, testimonialsRes, blogsRes] = await Promise.all([
+    const [aboutRes, featuresRes, workingCardRes, whyUsCardRes, propertyOptionsRes, faqsRes, testimonialsRes] = await Promise.all([
       fetch(`http://localhost:3000/api/data`),
       fetch(`http://localhost:3000/api/FeaturesCardData`),
       fetch(`http://localhost:3000/api/workingcardata`),
@@ -61,7 +57,6 @@ export async function getServerSideProps() {
       fetch(`http://localhost:3000/api/links`),
       fetch(`http://localhost:3000/api/faq`),
       fetch(`http://localhost:3000/api/testimonials`), // Fetch testimonials data
-      fetch(`http://localhost:3000/api/blogpagedata`) // Fetch blogs data
     ]);
 
     // Check if all responses are okay
@@ -72,14 +67,13 @@ export async function getServerSideProps() {
       !whyUsCardRes.ok || 
       !propertyOptionsRes.ok || 
       !faqsRes.ok || 
-      !testimonialsRes.ok || 
-      !blogsRes.ok // Check for blogs response
+      !testimonialsRes.ok // Check for testimonials response
     ) {
       throw new Error('Failed to fetch one or more data sources');
     }
 
     // Parse the responses
-    const [aboutData, featuresData, workingCardData, whyUsCardData, propertyOptions, faqs, testimonialsData, blogs] = await Promise.all([
+    const [aboutData, featuresData, workingCardData, whyUsCardData, propertyOptions, faqs, testimonialsData] = await Promise.all([
       aboutRes.json(),
       featuresRes.json(),
       workingCardRes.json(),
@@ -87,7 +81,6 @@ export async function getServerSideProps() {
       propertyOptionsRes.json(),
       faqsRes.json(),
       testimonialsRes.json(), // Parse testimonials data
-      blogsRes.json() // Parse blogs data
     ]);
 
     return {
@@ -99,7 +92,6 @@ export async function getServerSideProps() {
         propertyOptions,
         faqs,
         testimonialsData, // Return testimonials data
-        blogs, // Return blogs data
         error: null, // Reset error to null if data fetching is successful
       },
     };
@@ -114,7 +106,6 @@ export async function getServerSideProps() {
         propertyOptions: [],
         faqs: [],
         testimonialsData: [], // Return empty array for testimonials on error
-        blogs: [], // Return empty array for blogs on error
         error: error.message, // Pass error message to props
       },
     };
