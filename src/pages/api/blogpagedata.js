@@ -5,13 +5,13 @@ const blogs = [
     {
       id: 1,
       image: '/images/blog1.png', // Ensure the path is correct for Next.js
-      title: 'The Future of Mobile App Development',
-      description: 'Explore the upcoming trends in mobile app development and how they will impact the industry.',
+      title: 'How Much Does It Cost to Make A Mobile App In 2023: Detailed Cost Analysis',
+      description: 'Did you know that on average, 1290 new mobile apps are launched every 24 hours on Apple App Store,',
     },
     {
       id: 2,
       image: '/images/blog2.png', // Ensure the path is correct for Next.js
-      title: 'Top Mistakes to Avoid in App Development',
+      title: 'Decoding Airbnb – How Does the Vacation Rental App Work?',
       description: 'Learn about the common pitfalls in mobile app development and how to avoid them for a successful launch.',
     },
     {
