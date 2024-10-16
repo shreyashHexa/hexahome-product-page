@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'; 
 import Header from "../Components/header";
-import Hero from "../components/Hero";
+import Hero from "../Components/hero";
 import Head from 'next/head';
 
 // Dynamic imports with proper casing
@@ -28,7 +28,7 @@ export default function Home({
   return (
     <div className="font-sans">
       <Head>
-        <title>{aboutData.title || 'HexaHome'}</title>
+        <title>{ 'HexaHome'}</title>
         <meta name="description" content={aboutData.description || 'Find your next home with HexaHome.'} />
       </Head>
       <Header />
