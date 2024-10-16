@@ -1,22 +1,23 @@
 // pages/index.js
 
 import dynamic from 'next/dynamic'; 
-import Header from "../components/Header";
+import Header from "../Components/header";
 import Hero from "../components/Hero";
 import Head from 'next/head';
 
-const About = dynamic(() => import("../components/About"), { loading: () => <p>Loading About...</p> });
-const FeaturesCard = dynamic(() => import("../components/FeaturesCard"), { loading: () => <p>Loading Features...</p> });
-const WorkingCard = dynamic(() => import("../components/WorkingCard"), { loading: () => <p>Loading Working Cards...</p> });
-const WhyUsCard = dynamic(() => import("../components/WhyUsCard"), { loading: () => <p>Loading Why Us Cards...</p> });
-const LinkPage = dynamic(() => import("../components/LinkPage"), { loading: () => <p>Loading Links...</p> });
-const Tipspage = dynamic(() => import("../components/tipspage"), { loading: () => <p>Loading Tips...</p> });
-const Faq = dynamic(() => import("../components/FaqPage"), { loading: () => <p>Loading FAQs...</p> });
-const Testimonials = dynamic(() => import("../components/Testimonials"), { loading: () => <p>Loading Testimonials...</p> });
+// Dynamic imports with proper casing
+const About = dynamic(() => import("../Components/about"), { loading: () => <p>Loading About...</p> }); // Correct casing and path
+const FeaturesCard = dynamic(() => import("../Components/featuresCard"), { loading: () => <p>Loading Features...</p> });
+const WorkingCard = dynamic(() => import("../Components/workingCard"), { loading: () => <p>Loading Working Cards...</p> });
+const WhyUsCard = dynamic(() => import("../Components/whyusCard"), { loading: () => <p>Loading Why Us Cards...</p> });
+const LinkPage = dynamic(() => import("../Components/linkpage"), { loading: () => <p>Loading Links...</p> });
+const Tipspage = dynamic(() => import("../Components/tipspage"), { loading: () => <p>Loading Tips...</p> }); // Correct path and capitalization if file is Tipspage.js
+const Faq = dynamic(() => import("../Components/FaqPage"), { loading: () => <p>Loading FAQs...</p> });
+const Testimonials = dynamic(() => import("../Components/testimonials"), { loading: () => <p>Loading Testimonials...</p> });
 
 export default function Home({ 
   aboutData, 
-  featuresData, 
+  featuresData,   
   workingCardData, 
   whyUsCardData, 
   propertyOptions, 
@@ -32,18 +33,14 @@ export default function Home({
       </Head>
       <Header />
       <Hero />
-      <About data={aboutData} />
+      <About data={aboutData} /> {/* Use About with correct capitalization */}
       <FeaturesCard data={featuresData} />
       <WorkingCard cards={workingCardData} />
       <WhyUsCard data={whyUsCardData} />
       <LinkPage propertyOptions={propertyOptions} />
       <Tipspage />
       <Faq faqs={faqs} />
-      {testimonialsData.length > 0 ? (
-        <Testimonials data={testimonialsData} /> // Pass the fetched testimonials data
-      ) : (
-        <p>No testimonials available.</p> // Handle case where there are no testimonials
-      )}
+      <Testimonials data={testimonialsData} />
       {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
     </div>
   );
