@@ -48,7 +48,7 @@ const Connectus = () => {
                             <label htmlFor="description" className="mb-2">Brief Description:</label>
                             <textarea id="description" className="p-2 mb-4 border rounded" rows="4" required></textarea>
 
-                            <button type="submit" className="p-2 text-white rounded bg-tblue">Send Message</button>
+                            <button type="submit" className="p-2 text-white rounded bg-tblue">Submit</button>
                         </form>
                     </div>
                 </div>
