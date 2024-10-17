@@ -17,8 +17,8 @@ const Testimonials = dynamic(() => import("../Components/testimonials"), { loadi
 const Blogpage = dynamic(() => import("../Components/blogpage"), { loading: () => <p>Loading blog page...</p> });
 const Connectus = dynamic(() => import("../Components/connectus"), { loading: () => <p>Loading connectus page...</p> });
 const Footer = dynamic(() => import("../Components/footer"), { loading: () => <p>Loading footer page...</p> });
+
 export default function Home({ 
-  aboutData, 
   featuresData,   
   workingCardData, 
   whyUsCardData, 
@@ -32,11 +32,11 @@ export default function Home({
     <div className="font-sans">
       <Head>
         <title>{ 'HexaHome'}</title>
-        <meta name="description" content={aboutData.description || 'Find your next home with HexaHome.'} />
+        <meta name="description" content={'Find your next home with HexaHome.'} />
       </Head>
       <Header />
       <Hero />
-      <About data={aboutData} />
+      <About />
       <FeaturesCard data={featuresData} />
       <WorkingCard cards={workingCardData} />
       <WhyUsCard data={whyUsCardData} />
@@ -45,8 +45,8 @@ export default function Home({
       <Faq faqs={faqs} />
       <Testimonials testimonials={testimonialsData} /> {/* Pass testimonials data */}
       <Blogpage blogs={blogs} /> {/* Pass blogs data */}
-      <Connectus/>
-      <Footer/>
+      <Connectus />
+      <Footer />
       {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
     </div>
   );
@@ -55,8 +55,7 @@ export default function Home({
 // Fetching data server-side
 export async function getServerSideProps() {
   try {
-    const [aboutRes, featuresRes, workingCardRes, whyUsCardRes, propertyOptionsRes, faqsRes, testimonialsRes, blogsRes] = await Promise.all([
-      fetch(`http://localhost:3000/api/data`),
+    const [featuresRes, workingCardRes, whyUsCardRes, propertyOptionsRes, faqsRes, testimonialsRes, blogsRes] = await Promise.all([
       fetch(`http://localhost:3000/api/FeaturesCardData`),
       fetch(`http://localhost:3000/api/workingcardata`),
       fetch(`http://localhost:3000/api/whyusdata`),
@@ -66,9 +65,7 @@ export async function getServerSideProps() {
       fetch(`http://localhost:3000/api/blogpagedata`) // Fetch blogs data
     ]);
 
-    // Check if all responses are okay
     if (
-      !aboutRes.ok || 
       !featuresRes.ok || 
       !workingCardRes.ok || 
       !whyUsCardRes.ok || 
@@ -80,21 +77,18 @@ export async function getServerSideProps() {
       throw new Error('Failed to fetch one or more data sources');
     }
 
-    // Parse the responses
-    const [aboutData, featuresData, workingCardData, whyUsCardData, propertyOptions, faqs, testimonialsData, blogs] = await Promise.all([
-      aboutRes.json(),
+    const [featuresData, workingCardData, whyUsCardData, propertyOptions, faqs, testimonialsData, blogs] = await Promise.all([
       featuresRes.json(),
       workingCardRes.json(),
       whyUsCardRes.json(),
       propertyOptionsRes.json(),
       faqsRes.json(),
-      testimonialsRes.json(), // Parse testimonials data
-      blogsRes.json() // Parse blogs data
+      testimonialsRes.json(),
+      blogsRes.json()
     ]);
 
     return {
       props: {
-        aboutData,
         featuresData,
         workingCardData,
         whyUsCardData,
@@ -109,14 +103,13 @@ export async function getServerSideProps() {
     console.error(error);
     return {
       props: {
-        aboutData: { title: 'Error', description: 'Failed to load data.' },
         featuresData: [],
         workingCardData: [],
         whyUsCardData: [],
         propertyOptions: [],
         faqs: [],
-        testimonialsData: [], // Return empty array for testimonials on error
-        blogs: [], // Return empty array for blogs on error
+        testimonialsData: [],
+        blogs: [],
         error: error.message, // Pass error message to props
       },
     };
