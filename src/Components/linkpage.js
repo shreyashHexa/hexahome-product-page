@@ -42,7 +42,7 @@ const LinkPage = ({ propertyOptions }) => {
   }, []);
 
   return (
-    <section className="px-4 py-8 bg-white sm:px-8 lg:px-16">
+    <section className="px-4 py-8 text-black bg-white sm:px-8 lg:px-16">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-xl font-bold text-left md:text-2xl">
           Property Options in Noida

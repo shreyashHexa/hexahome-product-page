@@ -16,6 +16,7 @@ const Faq = dynamic(() => import("../Components/FaqPage"), { loading: () => <p>L
 const Testimonials = dynamic(() => import("../Components/testimonials"), { loading: () => <p>Loading Testimonials...</p> });
 const Blogpage = dynamic(() => import("../Components/blogpage"), { loading: () => <p>Loading blog page...</p> });
 const Connectus = dynamic(() => import("../Components/connectus"), { loading: () => <p>Loading connectus page...</p> });
+const Footer = dynamic(() => import("../Components/footer"), { loading: () => <p>Loading footer page...</p> });
 export default function Home({ 
   aboutData, 
   featuresData,   
@@ -45,6 +46,7 @@ export default function Home({
       <Testimonials testimonials={testimonialsData} /> {/* Pass testimonials data */}
       <Blogpage blogs={blogs} /> {/* Pass blogs data */}
       <Connectus/>
+      <Footer/>
       {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
     </div>
   );

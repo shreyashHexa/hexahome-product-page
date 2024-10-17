@@ -3,7 +3,7 @@ import React from "react";
 
 const About = ({ data }) => {
   return (
-    <div className="py-10">
+    <div className="py-10 text-black bg-white">
       <div className="grid gap-4 m-4 sm:grid-cols-12">
         {/* Text Section */}
         <div className="min-h-[100px] sm:col-span-8">

@@ -51,7 +51,7 @@ const Header = () => {
         </div>
 
         {/* Hamburger Menu Button - Visible on Mobile */}
-        <div className="md:hidden">
+        <div className=" md:hidden">
           <button className="focus:outline-none" onClick={toggleMenu}>
             <Image
               src="/images/burger-menu-svgrepo-com.svg" // Update the path to your SVG image

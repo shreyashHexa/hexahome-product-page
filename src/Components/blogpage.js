@@ -20,7 +20,7 @@ const Blogpage = ({ blogs }) => {
   }, []);
 
   return (
-    <div className='grid gap-3 px-4 pt-8 md:px-16 md:pt-16'>
+    <div className='grid gap-3 px-4 pt-8 pb-16 text-black bg-white md:px-16 md:pt-16'>
       <div className="flex flex-col items-center justify-between md:flex-row">
         <h3 className="text-tblue text-lg md:text-xl bg-lgray border-black px-2 py-1 md:py-2 w-[140px] rounded-[90px]">Our Blogs</h3>
         {!isMobile && ( // Hide top button on mobile
