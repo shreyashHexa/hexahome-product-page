@@ -1,6 +1,4 @@
-// pages/index.js
-
-import dynamic from 'next/dynamic'; 
+import dynamic from 'next/dynamic';
 import Header from "../Components/header";
 import Hero from "../Components/hero";
 import Head from 'next/head';
@@ -17,21 +15,22 @@ const Testimonials = dynamic(() => import("../Components/testimonials"), { loadi
 const Blogpage = dynamic(() => import("../Components/blogpage"), { loading: () => <p>Loading blog page...</p> });
 const Connectus = dynamic(() => import("../Components/connectus"), { loading: () => <p>Loading connectus page...</p> });
 const Footer = dynamic(() => import("../Components/footer"), { loading: () => <p>Loading footer page...</p> });
+
 export default function Home({ 
   aboutData, 
-  featuresData,   
+  featuresData, 
   workingCardData, 
   whyUsCardData, 
   propertyOptions, 
   faqs,
   testimonialsData,
-  blogs, // Add blogs to props
-  error, // Add error to props
+  blogs, 
+  error,
 }) {
   return (
     <div className="font-sans">
       <Head>
-        <title>{ 'HexaHome'}</title>
+        <title>{'HexaHome'}</title>
         <meta name="description" content={aboutData.description || 'Find your next home with HexaHome.'} />
       </Head>
       <Header />
@@ -43,11 +42,11 @@ export default function Home({
       <LinkPage propertyOptions={propertyOptions} />
       <Tipspage />
       <Faq faqs={faqs} />
-      <Testimonials testimonials={testimonialsData} /> {/* Pass testimonials data */}
-      <Blogpage blogs={blogs} /> {/* Pass blogs data */}
-      <Connectus/>
-      <Footer/>
-      {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
+      <Testimonials testimonials={testimonialsData} /> 
+      <Blogpage blogs={blogs} /> 
+      <Connectus />
+      <Footer />
+      {error && <p className="text-red-500">{error}</p>} {/* Display error message if any */}
     </div>
   );
 }
@@ -56,41 +55,25 @@ export default function Home({
 export async function getServerSideProps() {
   try {
     const [aboutRes, featuresRes, workingCardRes, whyUsCardRes, propertyOptionsRes, faqsRes, testimonialsRes, blogsRes] = await Promise.all([
-      fetch(`http://localhost:3000/api/data`),
-      fetch(`http://localhost:3000/api/FeaturesCardData`),
-      fetch(`http://localhost:3000/api/workingcardata`),
-      fetch(`http://localhost:3000/api/whyusdata`),
-      fetch(`http://localhost:3000/api/links`),
-      fetch(`http://localhost:3000/api/faq`),
-      fetch(`http://localhost:3000/api/testimonials`), // Fetch testimonials data
-      fetch(`http://localhost:3000/api/blogpagedata`) // Fetch blogs data
+      fetch(`http://localhost:3000/api/data`).catch(err => null),
+      fetch(`http://localhost:3000/api/FeaturesCardData`).catch(err => null),
+      fetch(`http://localhost:3000/api/workingcardata`).catch(err => null),
+      fetch(`http://localhost:3000/api/whyusdata`).catch(err => null),
+      fetch(`http://localhost:3000/api/links`).catch(err => null),
+      fetch(`http://localhost:3000/api/faq`).catch(err => null),
+      fetch(`http://localhost:3000/api/testimonials`).catch(err => null),
+      fetch(`http://localhost:3000/api/blogpagedata`).catch(err => null)
     ]);
 
-    // Check if all responses are okay
-    if (
-      !aboutRes.ok || 
-      !featuresRes.ok || 
-      !workingCardRes.ok || 
-      !whyUsCardRes.ok || 
-      !propertyOptionsRes.ok || 
-      !faqsRes.ok || 
-      !testimonialsRes.ok || 
-      !blogsRes.ok // Check for blogs response
-    ) {
-      throw new Error('Failed to fetch one or more data sources');
-    }
-
-    // Parse the responses
-    const [aboutData, featuresData, workingCardData, whyUsCardData, propertyOptions, faqs, testimonialsData, blogs] = await Promise.all([
-      aboutRes.json(),
-      featuresRes.json(),
-      workingCardRes.json(),
-      whyUsCardRes.json(),
-      propertyOptionsRes.json(),
-      faqsRes.json(),
-      testimonialsRes.json(), // Parse testimonials data
-      blogsRes.json() // Parse blogs data
-    ]);
+    // Handle individual responses and fallback to default if the fetch fails
+    const aboutData = aboutRes && aboutRes.ok ? await aboutRes.json() : { title: 'About', description: 'About data is unavailable.' };
+    const featuresData = featuresRes && featuresRes.ok ? await featuresRes.json() : [];
+    const workingCardData = workingCardRes && workingCardRes.ok ? await workingCardRes.json() : [];
+    const whyUsCardData = whyUsCardRes && whyUsCardRes.ok ? await whyUsCardRes.json() : [];
+    const propertyOptions = propertyOptionsRes && propertyOptionsRes.ok ? await propertyOptionsRes.json() : [];
+    const faqs = faqsRes && faqsRes.ok ? await faqsRes.json() : [];
+    const testimonialsData = testimonialsRes && testimonialsRes.ok ? await testimonialsRes.json() : [];
+    const blogs = blogsRes && blogsRes.ok ? await blogsRes.json() : [];
 
     return {
       props: {
@@ -100,9 +83,9 @@ export async function getServerSideProps() {
         whyUsCardData,
         propertyOptions,
         faqs,
-        testimonialsData, // Return testimonials data
-        blogs, // Return blogs data
-        error: null, // Reset error to null if data fetching is successful
+        testimonialsData,
+        blogs,
+        error: null, 
       },
     };
   } catch (error) {
@@ -115,9 +98,9 @@ export async function getServerSideProps() {
         whyUsCardData: [],
         propertyOptions: [],
         faqs: [],
-        testimonialsData: [], // Return empty array for testimonials on error
-        blogs: [], // Return empty array for blogs on error
-        error: error.message, // Pass error message to props
+        testimonialsData: [],
+        blogs: [],
+        error: error.message,
       },
     };
   }
