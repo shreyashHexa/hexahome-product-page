@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image"; // Ensure you're using Next.js Image
 
-const Card = ({ data }) => {
+const  FeaturesCard = ({ data }) => {
   return (
     <section className="py-10 bg-lgray">
       <div className="container px-4 mx-auto sm:px-8">
@@ -41,4 +41,4 @@ const Card = ({ data }) => {
   );
 };
 
-export default React.memo(Card);
+export default React.memo(FeaturesCard);
