@@ -18,6 +18,7 @@ module.exports = {
         hblue:"#000B20",
         lgray:"#E5EAF3",
         tblue:"#002E83",
+         fbg:"#151C22",
 
       },
     },

@@ -3,7 +3,7 @@ import React from "react";
 
 const WhyUsCard = ({ data }) => {
   return (
-    <section className="flex flex-col items-center justify-center gap-6 px-5 py-6 bg-lgray">
+    <section className="flex flex-col items-center justify-center gap-6 px-5 py-6 text-black bg-lgray">
       {/* Title and Description */}
       <div className="mb-8 text-center">
         <h2 className="text-2xl font-bold mb-4 md:text-[36px]">Why Property Hunters Love Us</h2>
