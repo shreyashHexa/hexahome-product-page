@@ -25,8 +25,8 @@ export default function Home({
   propertyOptions, 
   faqs,
   testimonialsData,
-  blogs, // Add blogs to props
-  error, // Add error to props
+  blogs,
+  error,
 }) {
   return (
     <div className="font-sans">
@@ -43,8 +43,8 @@ export default function Home({
       <LinkPage propertyOptions={propertyOptions} />
       <Tipspage />
       <Faq faqs={faqs} />
-      <Testimonials testimonials={testimonialsData} /> {/* Pass testimonials data */}
-      <Blogpage blogs={blogs} /> {/* Pass blogs data */}
+      <Testimonials testimonials={testimonialsData} />
+      <Blogpage blogs={blogs} />
       <Connectus />
       <Footer />
       {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
@@ -54,15 +54,17 @@ export default function Home({
 
 // Fetching data server-side
 export async function getServerSideProps() {
+  const API_URL = process.env.API_URL || 'http://localhost:3000'; // Use the environment variable for API URL
+
   try {
     const [featuresRes, workingCardRes, whyUsCardRes, propertyOptionsRes, faqsRes, testimonialsRes, blogsRes] = await Promise.all([
-      fetch(`http://localhost:3000/api/FeaturesCardData`),
-      fetch(`http://localhost:3000/api/workingcardata`),
-      fetch(`http://localhost:3000/api/whyusdata`),
-      fetch(`http://localhost:3000/api/links`),
-      fetch(`http://localhost:3000/api/faq`),
-      fetch(`http://localhost:3000/api/testimonials`), // Fetch testimonials data
-      fetch(`http://localhost:3000/api/blogpagedata`) // Fetch blogs data
+      fetch(`${API_URL}/api/FeaturesCardData`),
+      fetch(`${API_URL}/api/workingcardata`),
+      fetch(`${API_URL}/api/whyusdata`),
+      fetch(`${API_URL}/api/links`),
+      fetch(`${API_URL}/api/faq`),
+      fetch(`${API_URL}/api/testimonials`),
+      fetch(`${API_URL}/api/blogpagedata`)
     ]);
 
     if (
@@ -72,7 +74,7 @@ export async function getServerSideProps() {
       !propertyOptionsRes.ok || 
       !faqsRes.ok || 
       !testimonialsRes.ok || 
-      !blogsRes.ok // Check for blogs response
+      !blogsRes.ok 
     ) {
       throw new Error('Failed to fetch one or more data sources');
     }
@@ -94,8 +96,8 @@ export async function getServerSideProps() {
         whyUsCardData,
         propertyOptions,
         faqs,
-        testimonialsData, // Return testimonials data
-        blogs, // Return blogs data
+        testimonialsData,
+        blogs,
         error: null, // Reset error to null if data fetching is successful
       },
     };
