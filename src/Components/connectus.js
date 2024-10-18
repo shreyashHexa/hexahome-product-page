@@ -13,7 +13,7 @@ const Connectus = () => {
                     {/* Image Div with text overlay */}
                     <div className="relative hidden mb-8 md:mb-0 md:w-1/2 md:pr-4 md:block">
                         <Image 
-                            src="/images/connectus.png"
+                            src="/images/connectus.webp"
                             alt='Connect Us'
                             width={620}
                             height={630}

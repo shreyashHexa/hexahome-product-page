@@ -4,6 +4,7 @@
        url('/fonts/Gilroy-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
+  font-display: swap; /* Ensures text is visible while loading */
 }
 
 @font-face {
@@ -12,6 +13,7 @@
        url('/fonts/Gilroy-Bold.woff') format('woff');
   font-weight: 700;
   font-style: bold;
+  font-display: swap; /* Ensures text is visible while loading */
 }
 
 @tailwind base;
@@ -34,10 +36,28 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: '__gilroy_943418', '__gilroy_Fallback_943418', sans-serif; /* Use Gilroy font stack */
+  margin: 0; /* Reset default margin for body */
+  padding: 0; /* Reset default padding for body */
+  line-height: 1.6; /* Improved readability */
 }
 
 @layer utilities {
   .text-balance {
-    text-wrap: balance;
+    text-wrap: balance; /* Use balanced text wrapping */
   }
+
+  /* Add any additional utilities here */
+}
+
+/* Responsive adjustments for better performance */
+@media (max-width: 640px) {
+  /* Styles for small screens */
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  /* Styles for medium screens */
+}
+
+@media (min-width: 1024px) {
+  /* Styles for large screens */
 }

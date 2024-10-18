@@ -19,6 +19,7 @@ const Connectus = dynamic(() => import("../Components/connectus"), { loading: ()
 const Footer = dynamic(() => import("../Components/footer"), { loading: () => <p>Loading footer page...</p> });
 
 export default function Home({ 
+  aboutData, 
   featuresData,   
   workingCardData, 
   whyUsCardData, 
@@ -26,17 +27,16 @@ export default function Home({
   faqs,
   testimonialsData,
   blogs,
-  error,
 }) {
   return (
     <div className="font-sans">
       <Head>
-        <title>{ 'HexaHome'}</title>
-        <meta name="description" content={'Find your next home with HexaHome.'} />
+        <title>{'HexaHome'}</title>
+        <meta name="description" content={aboutData.description || 'Find your next home with HexaHome.'} />
       </Head>
       <Header />
       <Hero />
-      <About />
+      <About data={aboutData} />
       <FeaturesCard data={featuresData} />
       <WorkingCard cards={workingCardData} />
       <WhyUsCard data={whyUsCardData} />
@@ -47,17 +47,17 @@ export default function Home({
       <Blogpage blogs={blogs} />
       <Connectus />
       <Footer />
-      {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
     </div>
   );
 }
 
-// Fetching data server-side
-export async function getServerSideProps() {
-  const API_URL = process.env.API_URL || 'http://localhost:3000'; // Use the environment variable for API URL
+// Fetching data at build time
+export async function getStaticProps() {
+  const API_URL = process.env.API_URL || 'http://localhost:3000';
 
   try {
-    const [featuresRes, workingCardRes, whyUsCardRes, propertyOptionsRes, faqsRes, testimonialsRes, blogsRes] = await Promise.all([
+    const [aboutRes, featuresRes, workingCardRes, whyUsCardRes, propertyOptionsRes, faqsRes, testimonialsRes, blogsRes] = await Promise.all([
+      fetch(`${API_URL}/api/data`),
       fetch(`${API_URL}/api/FeaturesCardData`),
       fetch(`${API_URL}/api/workingcardata`),
       fetch(`${API_URL}/api/whyusdata`),
@@ -67,19 +67,22 @@ export async function getServerSideProps() {
       fetch(`${API_URL}/api/blogpagedata`)
     ]);
 
+    // Check responses
     if (
+      !aboutRes.ok || 
       !featuresRes.ok || 
       !workingCardRes.ok || 
       !whyUsCardRes.ok || 
       !propertyOptionsRes.ok || 
       !faqsRes.ok || 
       !testimonialsRes.ok || 
-      !blogsRes.ok 
+      !blogsRes.ok
     ) {
       throw new Error('Failed to fetch one or more data sources');
     }
 
-    const [featuresData, workingCardData, whyUsCardData, propertyOptions, faqs, testimonialsData, blogs] = await Promise.all([
+    const [aboutData, featuresData, workingCardData, whyUsCardData, propertyOptions, faqs, testimonialsData, blogs] = await Promise.all([
+      aboutRes.json(),
       featuresRes.json(),
       workingCardRes.json(),
       whyUsCardRes.json(),
@@ -91,6 +94,7 @@ export async function getServerSideProps() {
 
     return {
       props: {
+        aboutData,
         featuresData,
         workingCardData,
         whyUsCardData,
@@ -98,13 +102,14 @@ export async function getServerSideProps() {
         faqs,
         testimonialsData,
         blogs,
-        error: null, // Reset error to null if data fetching is successful
       },
+      revalidate: 60, // Optional: Regenerate the page every 60 seconds
     };
   } catch (error) {
     console.error(error);
     return {
       props: {
+        aboutData: { title: 'Error', description: 'Failed to load data.' },
         featuresData: [],
         workingCardData: [],
         whyUsCardData: [],
@@ -112,7 +117,6 @@ export async function getServerSideProps() {
         faqs: [],
         testimonialsData: [],
         blogs: [],
-        error: error.message, // Pass error message to props
       },
     };
   }
