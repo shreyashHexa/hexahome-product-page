@@ -36,23 +36,25 @@ const FaqPage = ({ faqs }) => {
 
             <div className="faqcompo">
                 {faqs.map((faq, index) => (
-                    <div key={index} className="flex flex-col items-start justify-between py-4 border-b md:flex-row">
-                        <div className="flex-1 mb-4 md:mb-0">
-                            {/* Question and answer container with border */}
-                            <div className="p-4 border rounded-lg shadow-md" onClick={() => toggleFAQ(index)} style={{ cursor: 'pointer' }}>
-                                <h4 className="text-lg font-semibold md:text-xl">{faq.question}</h4>
-                                {activeIndex === index && (
-                                    <p className="p-2 mt-2 text-base rounded bg-lgray md:text-lg">{faq.answer}</p>
+                    <div key={index} className="py-4">
+                        {/* Combined question and answer container */}
+                        <div
+                            className={`flex justify-between items-center p-4 border rounded-lg ${activeIndex === index ? 'bg-lgray' : ''}`} // Change background color when active
+                            onClick={() => toggleFAQ(index)}
+                            style={{ cursor: 'pointer' }}
+                        >
+                            <h4 className="flex-1 text-lg font-semibold md:text-xl">{faq.question}</h4>
+                            <div className={`flex items-center justify-center w-8 h-8 rounded-full border transition-colors ${activeIndex === index ? 'bg-lgray' : ''}`}>
+                                {activeIndex === index ? (
+                                    <AiOutlineMinus size={16} />
+                                ) : (
+                                    <AiOutlinePlus size={16} />
                                 )}
                             </div>
                         </div>
-                        <div onClick={() => toggleFAQ(index)} className="ml-4">
-                            {activeIndex === index ? (
-                                <AiOutlineMinus size={24} />
-                            ) : (
-                                <AiOutlinePlus size={24} />
-                            )}
-                        </div>
+                        {activeIndex === index && (
+                            <p className="p-2 text-base rounded bg-lgray md:text-lg">{faq.answer}</p> // Same background for answer
+                        )}
                     </div>
                 ))}
             </div>

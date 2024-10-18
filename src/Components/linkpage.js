@@ -97,12 +97,12 @@ const LinkPage = ({ propertyOptions }) => {
 
         {/* Subheading Sections in a Horizontal Scrollable Container */}
         <div className="w-full overflow-x-scroll" ref={scrollRef}>
-          <div className="flex gap-4 w-max min-w-full md:min-w-[80%] lg:min-w-[60%]">
+          <div className="flex gap-4  w-max min-w-full md:min-w-[80%] lg:min-w-[60%]">
             {propertyOptions.map((option, index) => (
               <div
                 key={index}
                 id={option.id}
-                className="flex flex-col flex-shrink-0 w-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] lg:max-w-[300px] p-2"
+                className=" flex flex-col gap-4 md:gap-2 sm:gap-2 flex-shrink-0 w-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] lg:max-w-[300px] p-2"
               >
                 {option.list.map((item, idx) => (
                   <a

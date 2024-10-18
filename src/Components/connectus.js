@@ -58,7 +58,7 @@ const Connectus = () => {
             <div className="relative pt-10px">
                 <div className="relative w-full h-[50vh] md:h-[80vh]"> {/* Adjust height for small and larger screens */}
                     <Image 
-                        src="/images/connectusbg.png"
+                        src="/images/connectusbg.webp"
                         alt='background'
                         layout="fill"
                         objectFit="cover"

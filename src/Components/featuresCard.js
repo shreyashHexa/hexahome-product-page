@@ -17,7 +17,7 @@ const  FeaturesCard = ({ data }) => {
           {data.map((feature, index) => (
             <div
               key={index}
-              className="flex flex-col items-start p-6 transition-shadow duration-300 bg-white rounded-lg shadow-md hover:shadow-lg"
+              className="flex flex-col items-start p-6 bg-white rounded-lg"
             >
               {/* SVG Icon Above Text */}
               <Image

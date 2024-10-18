@@ -14,7 +14,7 @@ const Workingcard = ({ cards }) => {
           {cards.map((card, index) => (
             <div
               key={index}
-              className="relative flex p-6 rounded-lg shadow-md bg-lgray hover:shadow-lg"
+              className="relative flex p-6 rounded-lg bg-lgray"
             >
               {/* Icon at the top-left corner */}
               <div className="flex-shrink-0 mr-4">
@@ -29,10 +29,10 @@ const Workingcard = ({ cards }) => {
               {/* Title and Description Section */}
               <div>
                 {/* Card Title */}
-                <h3 className="mb-2 text-lg font-medium">{card.title}</h3>
+                <h3 className="mb-2 text-lg font-medium text-black">{card.title}</h3>
 
                 {/* Card Description */}
-                <p className="text-gray-600">{card.description}</p>
+                <p className="text-black">{card.description}</p>
               </div>
             </div>
           ))}
