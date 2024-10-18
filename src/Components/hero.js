@@ -51,6 +51,7 @@ const Hero = () => {
             height={700}
             className="rounded-lg"
             priority
+            loading="eager" // Prevent lazy loading
           />
         </div>
       </div>

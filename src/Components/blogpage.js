@@ -34,9 +34,9 @@ const Blogpage = ({ blogs }) => {
         We spend a lot of time analyzing the mobile app development industry, so that you don&lsquo;t have to. Click the white papers below for an executive summary on trends, mistakes, projections, and data from the mobile app world.
       </p>
       
-      <a href="#"><div className='grid grid-cols-1 gap-4 mt-8 sm:grid-cols-2 md:grid-cols-3'>
+      <div className='grid grid-cols-1 gap-4 mt-8 sm:grid-cols-2 md:grid-cols-3'>
         {blogs.map(blog => (
-          <div key={blog.id} className="p-4 border rounded-lg">
+          <a key={blog.id} href={blog.link} className="block p-4 transition-shadow duration-200 border rounded-lg hover:shadow-lg">
             <Image 
               src={blog.image} 
               alt={blog.title} 
@@ -44,23 +44,23 @@ const Blogpage = ({ blogs }) => {
               width={362}
               height={166}
               style={{ 
-                borderRadius: '12px 0 0 0',
+                borderRadius: '12px 12px 0 0', // Fix corner radius for top
                 opacity: 1
               }} 
             />
             <h2 className="mt-2 text-lg md:text-xl">{blog.title}</h2>
             <p className="mt-1 text-sm md:text-base">{blog.description}</p>
-            <a href="#" className="inline-flex items-center mt-2 text-blue-500">
+            <span className="inline-flex items-center mt-2 text-blue-500">
               Learn More <span className="ml-1">→</span>
-            </a>
-          </div>
+            </span>
+          </a>
         ))}
-      </div></a>
+      </div> 
 
       {isMobile && ( // Show bottom button only on mobile
-        <div className="flex mt-4 justify-centre md:hidden">
+        <div className="flex justify-center mt-4 md:hidden">
           <button className="pt-2 pb-2 pl-4 pr-4 text-white w-[160px] h-[40px] bg-tblue rounded-lg">
-          More Blogs
+            More Blogs
           </button>
         </div>
       )}

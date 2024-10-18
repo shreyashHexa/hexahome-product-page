@@ -42,11 +42,10 @@ const About = ({ data }) => {
         {/* Text Section */}
         <div className="min-h-[100px] sm:col-span-8">
           <h1 className="px-4 py-6 text-2xl font-extrabold md:px-10 md:py-10 md:text-3xl">
-          About HexaHome
+          {data.title}
           </h1>
           <p className="px-4 pb-6 font-medium md:px-10 md:pb-10">
-          HexaHome, your one-stop solution for all your real estate needs! Whether you&apos;re looking to buy, sell, rent, or lease properties, HexaHome makes the process seamless and efficient. Our platform connects buyers, sellers, renters, and agents in one place, offering a wide range of real estate options, including properties, projects, PGs, and shared flats. At HexaHome, we empower users by providing direct access to listings from owners, builders, and agents, giving you the flexibility to choose the best fit for your needs. With detailed property information, high-quality images, and an intuitive interface, you can explore, compare, and make informed decisions with ease.
-          </p>
+          {data.description}  </p>
         </div>
         
         {/* Image Section */}
