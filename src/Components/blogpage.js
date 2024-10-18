@@ -34,7 +34,7 @@ const Blogpage = ({ blogs }) => {
         We spend a lot of time analyzing the mobile app development industry, so that you don&lsquo;t have to. Click the white papers below for an executive summary on trends, mistakes, projections, and data from the mobile app world.
       </p>
       
-      <div className='grid grid-cols-1 gap-4 mt-8 sm:grid-cols-2 md:grid-cols-3'>
+      <a href="#"><div className='grid grid-cols-1 gap-4 mt-8 sm:grid-cols-2 md:grid-cols-3'>
         {blogs.map(blog => (
           <div key={blog.id} className="p-4 border rounded-lg">
             <Image 
@@ -55,7 +55,7 @@ const Blogpage = ({ blogs }) => {
             </a>
           </div>
         ))}
-      </div>
+      </div></a>
 
       {isMobile && ( // Show bottom button only on mobile
         <div className="flex mt-4 justify-centre md:hidden">

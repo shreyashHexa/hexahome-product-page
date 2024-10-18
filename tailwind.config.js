@@ -1,5 +1,3 @@
-
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'], // Set Inter as the default sans-serif font
+        sans: ['__gilroy_943418', '__gilroy_Fallback_943418', 'sans-serif'], // Use Gilroy font stack for all sans text
       },
       colors: {
         background: "var(--background)",
@@ -18,8 +16,7 @@ module.exports = {
         hblue:"#000B20",
         lgray:"#E5EAF3",
         tblue:"#002E83",
-         fbg:"#151C22",
-
+        fbg:"#151C22",
       },
     },
   },

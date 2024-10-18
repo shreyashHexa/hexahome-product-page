@@ -1,3 +1,19 @@
+@font-face {
+  font-family: '__gilroy_943418';
+  src: url('/fonts/Gilroy-Regular.woff2') format('woff2'),
+       url('/fonts/Gilroy-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '__gilroy_943418';
+  src: url('/fonts/Gilroy-Bold.woff2') format('woff2'),
+       url('/fonts/Gilroy-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: bold;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,7 +33,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Inter', sans-serif; /* Use Inter font */
+  font-family: '__gilroy_943418', '__gilroy_Fallback_943418', sans-serif; /* Use Gilroy font stack */
 }
 
 @layer utilities {

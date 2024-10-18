@@ -52,7 +52,7 @@ const About = ({ data }) => {
         {/* Image Section */}
         <div className="min-h-[100px] sm:col-span-4 flex justify-center items-center">
           <Image
-            src={ '/images/aboutimg.png'} // Use the image URL from the API
+            src={ '/images/aboutimg.webp'} // Use the image URL from the API
             alt="About HexaHome"
             width={400} // Specify the width
             height={500} // Specify the height

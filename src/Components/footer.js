@@ -38,9 +38,9 @@ const Footer = () => {
                     <p id="des" className="mb-4 text-sm">
                         Hexadecimal is an Indian digital agency that has architected and maintained digital solutions for hundreds of VC-backed startups, government agencies, and Fortune 500 companies.
                     </p>
-                    <h4>
+                    <h2>
                         Contact us: <Link href="mailto:info@hexadecimalsoftware.com">info@hexadecimalsoftware.com</Link>
-                    </h4>
+                    </h2>
                     <h2 className="font-semibold">
                         INDIA 
                         <p className="mb-4 text-sm">
@@ -69,7 +69,7 @@ const Footer = () => {
                 <div className="grid gap-4 md:grid-cols-3 sm:space-x-2">
                     {/* Our Company */}
                     <div>
-                        <h3 
+                        <h2 
                             className="flex items-center justify-between mb-2 space-y-1 font-bold cursor-pointer sm:mb-4"
                             onClick={() => toggleSection("company")}
                         >
@@ -83,14 +83,14 @@ const Footer = () => {
                                     className="inline-block" 
                                 />
                             </span>
-                        </h3>
+                        </h2>
                         <ul className={`space-y-2 text-sm ${openSections.company || !isClient ? 'block' : 'hidden'} md:block`}>
                             <li><a href="#" className="hover:text-gray-400">About Us</a></li>
                             <li><a href="#" className="hover:text-gray-400">Careers</a></li>
                         </ul>
 
                         {/* Hire Developers */}
-                        <h3 
+                        <h2 
                             className="flex items-center justify-between pt-2 mb-2 space-y-1 font-bold cursor-pointer sm:mb-4"
                             onClick={() => toggleSection("developers")}
                         >
@@ -104,7 +104,7 @@ const Footer = () => {
                                     className="inline-block" 
                                 />
                             </span>
-                        </h3>
+                        </h2>
                         <ul className={`space-y-2 text-sm ${openSections.developers || !isClient ? 'block' : 'hidden'} md:block`}>
                             <li><a href="#" className="hover:text-gray-400">Hire Designers</a></li>
                             <li><a href="#" className="hover:text-gray-400">Hire QA Testers</a></li>
@@ -116,7 +116,7 @@ const Footer = () => {
 
                     {/* Our Services */}
                     <div>
-                        <h3 
+                        <h2 
                             className="flex items-center justify-between mb-2 space-y-1 font-bold cursor-pointer sm:mb-4"
                             onClick={() => toggleSection("services")}
                         >
@@ -130,7 +130,7 @@ const Footer = () => {
                                     className="inline-block" 
                                 />
                             </span>
-                        </h3>
+                        </h2>
                         <ul className={`space-y-2 text-sm ${openSections.services || !isClient ? 'block' : 'hidden'} md:block`}>
                             <li><a href="#" className="hover:text-gray-400">iOS App Development</a></li>
                             <li><a href="#" className="hover:text-gray-400">Android App Development</a></li>
@@ -146,7 +146,7 @@ const Footer = () => {
 
                     {/* Industries */}
                     <div>
-                        <h3 
+                        <h2 
                             className="flex items-center justify-between mb-2 space-y-1 font-bold cursor-pointer sm:mb-4"
                             onClick={() => toggleSection("industries")}
                         >
@@ -160,7 +160,7 @@ const Footer = () => {
                                     className="inline-block" 
                                 />
                             </span>
-                        </h3>
+                        </h2>
                         <ul className={`space-y-2 text-sm ${openSections.industries || !isClient ? 'block' : 'hidden'} md:block`}>
                             <li><a href="#" className="hover:text-gray-400">On-Demand App Development</a></li>
                             <li><a href="#" className="hover:text-gray-400">Healthcare Industries</a></li>

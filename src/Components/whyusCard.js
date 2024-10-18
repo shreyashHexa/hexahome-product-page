@@ -39,7 +39,7 @@ const WhyUsCard = ({ data }) => {
         {/* Center Image */}
         <div className="flex items-center justify-center w-full max-w-[320px] md:w-1/4">
           <Image
-            src="/images/whycardimg.png"
+            src="/images/whycardimg.webp"
             alt="Center Image"
             width={600}
             height={792}

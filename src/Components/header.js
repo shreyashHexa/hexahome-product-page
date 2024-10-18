@@ -23,12 +23,18 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 z-50 w-full h-20 transition duration-300 ${isScrolled ? 'bg-hblue' : 'bg-transparent'}`}>
-      <div className="flex items-center justify-between h-full px-4 mx-auto text-white max-w-7xl sm:px-6 lg:px-8">
+    <header className={`fixed top-0 z-50 w-full h-16 transition duration-300 ${isScrolled ? 'bg-white text-black' : 'bg-transparent text-white'}`}>
+      <div className="flex items-center justify-between h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Logo Section */}
         <div className="flex-shrink-0">
           <Link href="/">
-            <Image src="/images/logo.svg" alt="HexaHome Logo" width={167} height={44} className="h-12" />
+            <Image 
+              src={isScrolled ? "/images/logo-blue.svg" : "/images/logo.svg"} // Use blue logo when scrolled
+              alt="HexaHome Logo" 
+              width={167} 
+              height={44} 
+              className="h-12"
+            />
           </Link>
         </div>
 
@@ -45,13 +51,15 @@ const Header = () => {
 
         {/* Connect Button - Hidden on Mobile */}
         <div className="hidden md:flex">
-          <button className="px-4 py-2 text-blue-600 transition duration-300 bg-white rounded hover:bg-gray-100 focus:outline-none">
+          <button 
+            className={`px-4 py-2 transition duration-300 rounded focus:outline-none ${isScrolled ? 'bg-tblue text-white' : 'bg-white text-tblue hover:bg-gray-100'}`}
+          >
             Connect With Us
           </button>
         </div>
 
         {/* Hamburger Menu Button - Visible on Mobile */}
-        <div className=" md:hidden">
+        <div className="md:hidden">
           <button className="focus:outline-none" onClick={toggleMenu}>
             <Image
               src="/images/burger-menu-svgrepo-com.svg" // Update the path to your SVG image
@@ -65,8 +73,8 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute left-0 w-full text-white md:hidden bg-hblue top-20">
-          <nav className="flex flex-col items-center py-4 space-y-4">
+        <div className="absolute left-0 w-full bg-hblue top-20">
+          <nav className="flex flex-col items-center py-4 space-y-4 text-white md:hidden">
             <Link href="/about" onClick={toggleMenu}>About Us</Link>
             <Link href="/services" onClick={toggleMenu}>Services</Link>
             <Link href="/hire-developers" onClick={toggleMenu}>Hire Developers</Link>
@@ -76,7 +84,7 @@ const Header = () => {
             <Link href="/products" onClick={toggleMenu}>Products</Link>
             <button 
               onClick={toggleMenu}
-              className="px-4 py-2 text-blue-600 transition duration-300 bg-white rounded hover:bg-gray-100 focus:outline-none">
+              className="px-4 py-2 transition duration-300 bg-white rounded text-hblue focus:outline-none">
               Connect With Us
             </button>
           </nav>
