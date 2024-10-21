@@ -1,10 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: '__gilroy_943418';
   src: url('/fonts/Gilroy-Regular.woff2') format('woff2'),
        url('/fonts/Gilroy-Regular.woff') format('woff');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap; /* Ensures text is visible while loading */
+  font-style: normal; /* Corrected */
+  font-display: swap;
 }
 
 @font-face {
@@ -12,13 +16,10 @@
   src: url('/fonts/Gilroy-Bold.woff2') format('woff2'),
        url('/fonts/Gilroy-Bold.woff') format('woff');
   font-weight: 700;
-  font-style: bold;
-  font-display: swap; /* Ensures text is visible while loading */
+  font-style: normal; /* Corrected */
+  font-display: swap;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :root {
   --background: #ffffff;

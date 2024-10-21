@@ -5,7 +5,7 @@ const WhyUsCard = ({ data }) => {
   return (
     <section className="flex flex-col items-center justify-center gap-6 px-5 py-6 text-black bg-lgray">
       {/* Title and Description */}
-      <div className="mb-8 text-center">
+      <div className="px-8 mb-8 text-center ">
         <h2 className="text-2xl font-bold mb-4 md:text-[36px]">Why Property Hunters Love Us</h2>
         <p className="text-base md:text-[20px]">
           Changing the way people&apos;s, Property hunting made simple. Find, compare, and move into your dream home with ease.
@@ -13,7 +13,7 @@ const WhyUsCard = ({ data }) => {
       </div>
 
       {/* Cards and Center Image */}
-      <div className="flex flex-col items-center justify-between w-full gap-8 md:flex-row">
+      <div className="flex flex-col items-center justify-between w-full gap-8 px-20 md:flex-row">
         {/* Left Column */}
         <div className="flex flex-col items-center w-full gap-4 md:w-1/4">
           {data.slice(0, 2).map((card) => (

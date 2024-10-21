@@ -4,29 +4,20 @@ import Image from 'next/image';
 // Custom Arrow Component for Next and Previous buttons with circular background and repositioning
 const NextArrow = ({ onClick }) => (
     <div 
-        className="absolute z-10 p-2 bg-white rounded-full shadow-md cursor-pointer top-2 right-[10%] sm:right-[5%] md:right-[3%] lg:right-[2%]" 
+        className="absolute z-10 p-2 bg-white rounded-full shadow-md cursor-pointer top-2 right-[8%]" // Adjust right percentage to 8%
         onClick={onClick}>
-        <Image
-            src="/images/next-arrow.svg" 
-            alt="Next" 
-            width={24} 
-            height={24} 
-            className="text-tblue hover:text-blue-600" />
+        ➡
     </div>
 );
 
 const PrevArrow = ({ onClick }) => (
     <div 
-        className="absolute z-10 p-2 bg-white rounded-full shadow-md cursor-pointer top-2 right-[18%] sm:right-[12%] md:right-[9%] lg:right-[7%]" 
+        className="absolute z-10 p-2 bg-white rounded-full shadow-md cursor-pointer top-2 right-[14%]" // Adjust right percentage to 14%
         onClick={onClick}>
-        <Image
-            src="/images/prev-arrow.svg" 
-            alt="Previous" 
-            width={24} 
-            height={24} 
-            className="text-tblue hover:text-blue-600" />
+        ⬅
     </div>
 );
+
 
 const Testimonials = () => {
     const reviews = [
@@ -82,8 +73,8 @@ const Testimonials = () => {
     const reviewsToDisplay = reviews.slice(currentIndex, currentIndex + 3);
 
     return (
-        <div className="relative px-4 py-8 text-black bg-lgray md:px-10 md:py-10">
-            <div className="flex items-center justify-between">
+        <div className="relative px-10 py-8 text-black bg-lgray md:px-10 md:py-10">
+            <div className="flex items-center justify-between px-6">
                 {/* Left-aligned text content */}
                 <div>
                     <h3 className="text-tblue text-xl md:text-2xl bg-white border-black px-2 py-1 md:py-2 w-[160px] rounded-[90px]">Testimonials</h3>
@@ -92,14 +83,14 @@ const Testimonials = () => {
                 </div>
 
                 {/* Right-aligned arrows */}
-                <div className="relative">
+                <div className="relative flex-shrink-0">
                     <PrevArrow onClick={handlePrev} />
                     <NextArrow onClick={handleNext} />
                 </div>
             </div>
 
-            <div className="relative mt-8">
-                <div className="flex flex-wrap justify-center space-x-4">
+            <div className="px-6 mt-8">
+                <div className="flex flex-wrap space-x-4">
                     {/* Display 1 card on small screens, 2 on medium, and 3 on large screens */}
                     {reviewsToDisplay.map((review, index) => (
                         <div key={index} className="p-4 bg-white rounded-lg shadow-lg w-full sm:w-[48%] lg:w-[30%] mb-4">

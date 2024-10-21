@@ -1,4 +1,3 @@
-// Components/blogpage.js
 import Image from "next/image";
 import React, { useEffect, useState } from 'react';
 
@@ -22,9 +21,9 @@ const Blogpage = ({ blogs }) => {
   return (
     <div className='grid gap-3 px-4 pt-8 pb-16 text-black bg-white md:px-16 md:pt-16'>
       <div className="flex flex-col items-center justify-between md:flex-row">
-        <h3 className="text-tblue text-lg md:text-xl bg-lgray border-black px-2 py-1 md:py-2 w-[140px] rounded-[90px]">Our Blogs</h3>
+        <h3 className="text-tblue text-lg md:text-xl bg-gradient-to-r from-[#D8E3FF] to-white border-black px-2 py-1 md:py-2 w-[140px] rounded-[90px]">Our Blogs</h3>
         {!isMobile && ( // Hide top button on mobile
-          <button className="mt-4 md:mt-0 ml-auto pt-1 pb-2 pl-4 pr-4 text-white w-[160px] h-[40px] bg-tblue rounded-lg md:w-[205px] md:h-[50px] md:pt-4 md:pb-4 md:pl-5 md:pr-5">
+          <button className="mt-4 md:mt-0 ml-auto pt-1 pb-2 pl-4 pr-4 text-white w-[160px] h-[40px] bg-tblue rounded-lg md:w-[205px] md:h-[50px] md:pt-4 md:pb-4 md:pl-5 md:pr-5 hover:bg-blue-600 transition duration-200">
             Checkout More Blogs
           </button>
         )}
@@ -43,6 +42,7 @@ const Blogpage = ({ blogs }) => {
               className="object-cover rounded-t-lg" 
               width={362}
               height={166}
+              priority // Important for critical images
               style={{ 
                 borderRadius: '12px 12px 0 0', // Fix corner radius for top
                 opacity: 1
@@ -59,7 +59,7 @@ const Blogpage = ({ blogs }) => {
 
       {isMobile && ( // Show bottom button only on mobile
         <div className="flex justify-center mt-4 md:hidden">
-          <button className="pt-2 pb-2 pl-4 pr-4 text-white w-[160px] h-[40px] bg-tblue rounded-lg">
+          <button className="pt-2 pb-2 pl-4 pr-4 text-white w-[160px] h-[40px] bg-tblue rounded-lg hover:bg-blue-600 transition duration-200">
             More Blogs
           </button>
         </div>

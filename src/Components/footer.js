@@ -24,7 +24,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="px-4 pt-10 pb-6 text-white bg-fbg">
+        <footer className="px-16 pt-10 pb-6 text-white bg-fbg">
             <div className="container mx-auto grid grid-cols-1 gap-6 md:grid-cols-[25%_75%]">
                 {/* First Column: Logo, Address, Social Icons */}
                 <div className="grid gap-4 mb-6 md:mb-0">

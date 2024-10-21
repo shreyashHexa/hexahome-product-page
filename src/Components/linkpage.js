@@ -42,14 +42,14 @@ const LinkPage = ({ propertyOptions }) => {
   }, []);
 
   return (
-    <section className="px-4 py-8 text-black bg-white sm:px-8 lg:px-16">
-      <div className="flex items-center justify-between mb-6">
+    <section className="px-6 py-8 text-black bg-white sm:px-8 lg:px-16">
+      <div className="flex items-center justify-between px-2 mb-6">
         <h3 className="text-xl font-bold text-left md:text-2xl">
           Property Options in Noida
         </h3>
       </div>
 
-      <div id="subheading" className="flex flex-col items-start">
+      <div id="subheading" className="flex flex-col items-start px-2">
         {/* Links for Navigation */}
         <div className="flex flex-wrap gap-4 mb-4">
           <a href="#rent" className="text-base font-medium hover:text-sky-400 hover:underline">

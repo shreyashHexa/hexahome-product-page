@@ -29,25 +29,26 @@ export default function Home({
   blogs,
 }) {
   return (
-    <div className="font-sans">
-      <Head>
-        <title>{'HexaHome'}</title>
-        <meta name="description" content={aboutData.description || 'Find your next home with HexaHome.'} />
-      </Head>
-      <Header />
-      <Hero />
-      <About data={aboutData} />
-      <FeaturesCard data={featuresData} />
-      <WorkingCard cards={workingCardData} />
-      <WhyUsCard data={whyUsCardData} />
-      <LinkPage propertyOptions={propertyOptions} />
-      <Tipspage />
-      <Faq faqs={faqs} />
-      <Testimonials testimonials={testimonialsData} />
-      <Blogpage blogs={blogs} />
-      <Connectus />
-      <Footer />
-    </div>
+    <div className="font-gilroy">
+    <Head>
+      <title>{'HexaHome'}</title>
+      <meta name="description" content={aboutData.description || 'Find your next home with HexaHome.'} />
+    </Head>
+    <Header />
+    <Hero />
+    <About data={aboutData} />
+    <FeaturesCard data={featuresData} />
+    <WorkingCard cards={workingCardData} />
+    <WhyUsCard data={whyUsCardData} />
+    <LinkPage propertyOptions={propertyOptions} />
+    <Tipspage />
+    <Faq faqs={faqs} />
+    <Testimonials testimonials={testimonialsData} />
+    <Blogpage blogs={blogs} />
+    <Connectus />
+    <Footer />
+  </div>
+  
   );
 }
 

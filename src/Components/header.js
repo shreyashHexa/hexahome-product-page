@@ -29,7 +29,7 @@ const Header = () => {
         <div className="flex-shrink-0">
           <Link href="/">
             <Image 
-              src={isScrolled ? "/images/logo-blue.svg" : "/images/logo.svg"} // Use blue logo when scrolled
+              src={isScrolled ? "/images/logo2.svg" : "/images/logo.svg"} // Use blue logo when scrolled
               alt="HexaHome Logo" 
               width={167} 
               height={44} 

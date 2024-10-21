@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['__gilroy_943418', '__gilroy_Fallback_943418', 'sans-serif'], // Use Gilroy font stack for all sans text
+        glory: ['Glory', 'sans-serif'],
       },
       colors: {
         background: "var(--background)",
@@ -17,6 +17,8 @@ module.exports = {
         lgray:"#E5EAF3",
         tblue:"#002E83",
         fbg:"#151C22",
+        gradient: "linear-gradient(90deg, #D8E3FF 0%, rgba(255, 255, 255, 0) 131.99%, #29252E 272.14%)",
+
       },
     },
   },
