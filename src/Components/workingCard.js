@@ -3,8 +3,13 @@ import React from "react";
 
 const Workingcard = ({ cards }) => {
   return (
-    <section className="px-4 py-10 bg-white sm:px-10">
-      <div className="container mx-auto">
+    <section className="py-10 pl-12 bg-white sm:px-10">
+      <div className="container px-10 mx-auto">
+      <h2 className="flex items-center justify-center text-center max-w-[130px] mx-auto px-2 py-1 text-base font-semibold bg-gradient-to-r from-[#D8E3FF] to-white rounded-full text-tblue">
+  How It&apos;s Works
+</h2>
+
+
         <h2 className="px-2 py-4 mb-3 text-2xl font-bold text-center text-gray-800 sm:text-3xl md:text-4xl lg:text-5xl">
           How to List Property in HexaHome
         </h2>

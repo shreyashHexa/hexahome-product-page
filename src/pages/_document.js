@@ -4,9 +4,13 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* No external font links since we're using local fonts */}
+        {/* Import Glory font from Google Fonts */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Glory:wght@100;300;400;500;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
-      <body className="antialiased">
+      <body className="antialiased font-">
         <Main />
         <NextScript />
       </body>
